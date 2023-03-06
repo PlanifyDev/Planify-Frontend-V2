@@ -70,11 +70,11 @@ export default function HomeHero() {
   return (
     <MotionContainer>
       <RootStyle>
-        <HeroOverlayStyle
+        {/* <HeroOverlayStyle
           alt="overlay"
           src="https://minimal-assets-api.vercel.app/assets/overlay.svg"
           variants={varFade().in}
-        />
+        /> */}
 
         <HeroImgStyle
           alt="hero"
@@ -86,23 +86,23 @@ export default function HomeHero() {
           <ContentStyle>
             <m.div variants={varFade().inRight}>
               <Typography variant="h1" sx={{ color: 'common.white' }}>
-                Start a <br />
-                new project <br /> with
+                Build <br />
+                your Home  <br /> with
                 <Typography component="span" variant="h1" sx={{ color: 'primary.main' }}>
-                  &nbsp;Minimal
+                  &nbsp;Planify
                 </Typography>
               </Typography>
             </m.div>
 
             <m.div variants={varFade().inRight}>
               <Typography sx={{ color: 'common.white' }}>
-                The starting point for your next project based on easy-to-customize MUI helps you build apps faster and
-                better.
+               Create floor plans easily with planify's space planning software ,
+               <p>using the power of AI to make your design .</p>
               </Typography>
             </m.div>
 
             <Stack spacing={2.5} alignItems="center" direction={{ xs: 'column', md: 'row' }}>
-              <m.div variants={varFade().inRight}>
+              {/* <m.div variants={varFade().inRight}>
                 <TextIconLabel
                   icon={
                     <Image
@@ -123,9 +123,9 @@ export default function HomeHero() {
                     </Link>
                   }
                 />
-              </m.div>
+              </m.div> */}
 
-              <m.div variants={varFade().inRight}>
+              {/* <m.div variants={varFade().inRight}>
                 <TextIconLabel
                   icon={
                     <Image
@@ -146,7 +146,7 @@ export default function HomeHero() {
                     </Link>
                   }
                 />
-              </m.div>
+              </m.div> */}
             </Stack>
 
             <m.div variants={varFade().inRight}>
@@ -155,20 +155,23 @@ export default function HomeHero() {
                 variant="contained"
                 component={RouterLink}
                 to={PATH_DASHBOARD.root}
-                startIcon={<Iconify icon={'eva:flash-fill'} width={20} height={20} />}
+                // style={{width:80}}
+                startIcon={<Iconify icon={'eva:flash-fill'} width={15} height={20}  />}
+                style={{ textAlign: 'center' }}
+
               >
-                Live Preview
+                Planify Now!
               </Button>
             </m.div>
 
             <Stack spacing={2.5}>
-              <m.div variants={varFade().inRight}>
+              {/* <m.div variants={varFade().inRight}>
                 <Typography variant="overline" sx={{ color: 'primary.light' }}>
                   Available For
                 </Typography>
-              </m.div>
+              </m.div> */}
 
-              <Stack direction="row" spacing={1.5} justifyContent={{ xs: 'center', md: 'flex-start' }}>
+              {/* <Stack direction="row" spacing={1.5} justifyContent={{ xs: 'center', md: 'flex-start' }}>
                 {['ic_sketch', 'ic_figma', 'ic_js', 'ic_ts', 'ic_nextjs'].map((resource) => (
                   <m.img
                     key={resource}
@@ -176,7 +179,7 @@ export default function HomeHero() {
                     src={`https://minimal-assets-api.vercel.app/assets/images/home/${resource}.svg`}
                   />
                 ))}
-              </Stack>
+              </Stack> */}
             </Stack>
           </ContentStyle>
         </Container>
