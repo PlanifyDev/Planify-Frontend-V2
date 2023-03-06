@@ -51,7 +51,7 @@ export default function AccountChangePassword() {
         'authorization': `${accessToken}`
       };
       console.log(uid);
-      axios.put(`http://127.0.0.1:3000/updateall/${uid}`, {oldpassword: data.oldPassword, password: data.newPassword})
+      axios.put(`http://localhost:3000/updateall/${uid}`, {oldpassword: data.oldPassword, password: data.newPassword})
       .then((res) => {})
       .catch((err) => {})
 

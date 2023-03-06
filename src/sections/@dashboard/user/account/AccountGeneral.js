@@ -60,7 +60,7 @@ export default function AccountGeneral() {
     //   'authorization': `${accessToken}`
     // };
 
-    // axios.put(`http://127.0.0.1:3000/updateall/${id}`, { verificationCode: code })
+    // axios.put(`http://localhost:3000/updateall/${id}`, { verificationCode: code })
     //   .then((res) => {
     //     enqueueSnackbar('Verify success!');
     //     const newAccessToken = res.data.jwt;

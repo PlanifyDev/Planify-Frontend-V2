@@ -35,7 +35,7 @@ export default function AuthGuard({ children }) {
     return <Login />;
   }
 
-  // const response = await axios.get('127.0.0.1:3000/');
+  // const response = await axios.get('localhost:3000/');
 
   const verified = jwtDecode(window.localStorage.getItem('accessToken')).verified;
 

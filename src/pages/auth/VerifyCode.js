@@ -70,7 +70,7 @@ export default function VerifyCode() {
                   'authorization': `${accessToken}`
                 };
                 const uid = jwtDecode(accessToken).userId
-                axios.get(`http://127.0.0.1:3000/resend-verification/${uid}`)
+                axios.get(`http://localhost:3000/resend-verification/${uid}`)
                 .then((res) => {
                   enqueueSnackbar('Verification code sent', { variant: 'success' });
                 })
