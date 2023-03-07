@@ -99,12 +99,12 @@ export default function HomeMinimal() {
           }}
         >
           <m.div variants={varFade().inUp}>
-            <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
+            {/* <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
               Minimal
-            </Typography>
+            </Typography> */}
           </m.div>
           <m.div variants={varFade().inDown}>
-            <Typography variant="h2">What Planifyhelps you?</Typography>
+            <Typography variant="h2">How Planify helps you?</Typography>
           </m.div>
         </Box>
 

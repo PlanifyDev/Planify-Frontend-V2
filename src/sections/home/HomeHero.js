@@ -71,7 +71,7 @@ export default function HomeHero() {
     <MotionContainer>
       <RootStyle>
         {/* <HeroOverlayStyle
-          alt="overlay"
+          // alt="overlay"
           src="https://minimal-assets-api.vercel.app/assets/overlay.svg"
           variants={varFade().in}
         /> */}
@@ -96,8 +96,8 @@ export default function HomeHero() {
 
             <m.div variants={varFade().inRight}>
               <Typography sx={{ color: 'common.white' }}>
-               Create floor plans easily with planify's space planning software ,
-               <p>using the power of AI to make your design .</p>
+                Create floor plans easily with planify's space planning software ,
+                <p>using the power of AI to make your design .</p>
               </Typography>
             </m.div>
 
@@ -156,7 +156,7 @@ export default function HomeHero() {
                 component={RouterLink}
                 to={PATH_DASHBOARD.root}
                 // style={{width:80}}
-                startIcon={<Iconify icon={'eva:flash-fill'} width={15} height={20}  />}
+                startIcon={<Iconify icon={'eva:flash-fill'} width={15} height={20} />}
                 style={{ textAlign: 'center' }}
 
               >
