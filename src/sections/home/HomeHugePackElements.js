@@ -86,16 +86,15 @@ export default function HomeHugePackElements() {
           <Grid item xs={12} md={4} sx={{ display: 'flex', alignItems: 'center' }}>
             <ContentStyle>
               <m.div variants={varFade().inUp}>
-                <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
+                {/* <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
                   Interface Starter Kit
-                </Typography>
+                </Typography> */}
               </m.div>
 
               <m.div variants={varFade().inUp}>
                 <Typography variant="h2" sx={{ mb: 3 }}>
-                  Huge pack <br />
-                  of elements
-                </Typography>
+                  Discover,<br />
+                  our amazing floor plan designs                 </Typography>
               </m.div>
 
               <m.div variants={varFade().inUp}>
@@ -105,12 +104,14 @@ export default function HomeHugePackElements() {
                     color: isLight ? 'text.secondary' : 'common.white',
                   }}
                 >
-                  We collected most popular elements. Menu, sliders, buttons, inputs etc. are all here. Just dive in!
+                  Find the perfect
+                  layout for your unique needs and preferences,
+                  created using AI technologies .
                 </Typography>
               </m.div>
 
               <m.div variants={varFade().inUp}>
-                <Button
+                {/* <Button
                   size="large"
                   color="inherit"
                   variant="outlined"
@@ -119,7 +120,7 @@ export default function HomeHugePackElements() {
                   href="https://www.minimals.cc/components/"
                 >
                   View All Components
-                </Button>
+                </Button> */}
               </m.div>
             </ContentStyle>
           </Grid>
@@ -159,12 +160,12 @@ export default function HomeHugePackElements() {
                     }),
                   }}
                 >
+                  {/* ///////////////////////////////////image///////////////////////////////////////////// */}
                   <Image
                     disabledEffect
                     alt={`screen ${index + 1}`}
-                    src={`https://minimal-assets-api.vercel.app/assets/images/home/screen_${
-                      isLight ? 'light' : 'dark'
-                    }_${index + 1}.png`}
+                    src={`https://minimal-assets-api.vercel.app/assets/images/home/screen_${isLight ? 'light' : 'dark'
+                      }_${index + 1}.png`}
                   />
                 </ScreenStyle>
               ))}

@@ -32,13 +32,13 @@ export default function HomePricingPlans() {
       <Container component={MotionViewport}>
         <Box sx={{ mb: 10, textAlign: 'center' }}>
           <m.div variants={varFade().inUp}>
-            <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
+            {/* <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
               pricing plans
-            </Typography>
+            </Typography> */}
           </m.div>
           <m.div variants={varFade().inDown}>
             <Typography variant="h2" sx={{ mb: 3 }}>
-              The right plan for your business
+               The right plan for your business
             </Typography>
           </m.div>
           <m.div variants={varFade().inDown}>

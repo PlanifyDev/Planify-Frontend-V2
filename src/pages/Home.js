@@ -39,11 +39,13 @@ export default function HomePage() {
 
           <HomeHugePackElements />
 
-          <HomeDarkMode />
+          {/* <HomeDarkMode /> */}
+
+          <HomeCleanInterfaces />
 
           <HomeColorPresets />
 
-          <HomeCleanInterfaces />
+
 
           <HomePricingPlans />
 

@@ -34,14 +34,14 @@ export default function HomeColorPresets() {
     <RootStyle>
       <Container component={MotionViewport} sx={{ position: 'relative', textAlign: 'center' }}>
         <m.div variants={varFade().inUp}>
-          <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
+          {/* <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
             choose your style
-          </Typography>
+          </Typography> */}
         </m.div>
 
         <m.div variants={varFade().inUp}>
           <Typography variant="h2" sx={{ mb: 3 }}>
-            Color presets
+            How to Draw a Floor Plan
           </Typography>
         </m.div>
 
@@ -51,7 +51,12 @@ export default function HomeColorPresets() {
               color: (theme) => (theme.palette.mode === 'light' ? 'text.secondary' : 'text.primary'),
             }}
           >
-            Express your own style with just one click.
+            There are a few basic steps to creating a floor plan:<br />
+            Draw your layout,output designs based on the size and shape of the location on which to build.
+            . If the building already exists, <br/>
+            decide how much (a room, bathroom, or the enterance of the building) of it to draw
+
+            
           </Typography>
         </m.div>
 
@@ -125,6 +130,7 @@ export default function HomeColorPresets() {
             })}
           </Stack>
         </RadioGroup>
+        {/* //////////////////////////////////4 images needed////////////////////////////////////////////////////////// */}
 
         <Box sx={{ position: 'relative' }}>
           <Image

@@ -6,25 +6,27 @@ import { Box, Card, Container, Typography } from '@mui/material';
 import Image from '../../components/Image';
 import { MotionViewport, varFade } from '../../components/animate';
 
+
 // ----------------------------------------------------------------------
 
 const CARDS = [
   {
     icon: 'https://minimal-assets-api.vercel.app/assets/icons/ic_design.svg',
-    title: 'UI & UX Design',
+    title: 'Improved accuracy',
     description:
-      'The set is built on the principles of the atomic design system. It helps you to create projects fastest and easily customized packages for your projects.',
+      'Planify software can provide greater accuracy in creating floor plans as compared to traditional manual methods. and generate accurate measurements .',
   },
   {
     icon: 'https://minimal-assets-api.vercel.app/assets/icons/ic_code.svg',
-    title: 'Development',
-    description: 'Easy to customize and extend each component, saving you time and money.',
+    title: 'Visualization',
+    description: 'Planify can generate 3D models that allow users to visualize the space before construction begins. This helps understanding how the space will look and feel, and make any necessary adjustments .',
   },
   {
     icon: '/logo/logo_single.svg',
-    title: 'Branding',
-    description: 'Consistent design in colors, fonts ... makes brand recognition easy.',
+    title: 'Time-saving',
+    description: 'the website can automate time-consuming tasks like calculating areas, and generating 3D models. This can save a lot of time and effort compared to the manual method .',
   },
+ 
 ];
 
 const shadowIcon = (color) => `drop-shadow(2px 2px 2px ${alpha(color, 0.48)})`;

@@ -40,9 +40,9 @@ export default function HomeCleanInterfaces() {
       <Container component={MotionViewport}>
         <ContentStyle>
           <m.div variants={varFade().inUp}>
-            <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
+            {/* <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
               clean & clear
-            </Typography>
+            </Typography> */}
           </m.div>
 
           <m.div variants={varFade().inUp}>
@@ -55,7 +55,7 @@ export default function HomeCleanInterfaces() {
                 }),
               }}
             >
-              Beautiful, modern and clean user interfaces
+              Beautiful, smart and modern designs
             </Typography>
           </m.div>
         </ContentStyle>
