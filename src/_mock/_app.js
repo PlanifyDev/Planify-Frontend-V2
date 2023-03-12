@@ -40,7 +40,7 @@ export const _appInvoices = [...Array(5)].map((_, index) => ({
 
 export const _appFeatured = [...Array(3)].map((_, index) => ({
   id: _mock.id(index),
-  title: ['Harry Potter and the Deathly Hallows - Part 2', 'Disney Zombies 2', 'Lightroom mobile - Koloro'][index],
+  title: ['Design every aspect of your space  - Part 2', 'Clear and precise floor plan created using our AI', '3D models'][index],
   description: _mock.text.title(index),
   image: _mock.image.feed(index),
 }));
