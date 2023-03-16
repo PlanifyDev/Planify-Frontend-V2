@@ -6,6 +6,7 @@ import {
   Box,
   Stack,
   Radio,
+  Grid,
   Tooltip,
   Container,
   Typography,
@@ -18,6 +19,7 @@ import useSettings from '../../hooks/useSettings';
 // components
 import Image from '../../components/Image';
 import { MotionViewport, varFade } from '../../components/animate';
+import { AppAreaInstalled } from '../@dashboard/general/app';
 
 // ----------------------------------------------------------------------
 
@@ -41,7 +43,7 @@ export default function HomeColorPresets() {
 
         <m.div variants={varFade().inUp}>
           <Typography variant="h2" sx={{ mb: 3 }}>
-            How to Draw a Floor Plan
+          How Our Model is Evolving
           </Typography>
         </m.div>
 
@@ -51,12 +53,9 @@ export default function HomeColorPresets() {
               color: (theme) => (theme.palette.mode === 'light' ? 'text.secondary' : 'text.primary'),
             }}
           >
-            There are a few basic steps to creating a floor plan:<br />
-            Draw your layout,output designs based on the size and shape of the location on which to build.
-            . If the building already exists, <br/>
-            decide how much (a room, bathroom, or the enterance of the building) of it to draw
+           Our AI-generated floor plans are becoming more accurate over time as we refine our model with better datasets and training.
 
-            
+
           </Typography>
         </m.div>
 
@@ -139,7 +138,7 @@ export default function HomeColorPresets() {
             src="https://minimal-assets-api.vercel.app/assets/images/home/theme-color/grid.png"
           />
 
-          <Box sx={{ position: 'absolute', top: 0 }}>
+          {/* <Box sx={{ position: 'absolute', top: 0 }}>
             <m.div variants={varFade().inUp}>
               <Image
                 disabledEffect
@@ -147,43 +146,30 @@ export default function HomeColorPresets() {
                 src={`https://minimal-assets-api.vercel.app/assets/images/home/theme-color/screen-${themeColorPresets}.png`}
               />
             </m.div>
-          </Box>
+          </Box> */}
 
-          <Box sx={{ position: 'absolute', top: 0 }}>
+          {/* <Box sx={{ position: 'absolute', top: 0 }}>
             <m.div variants={varFade().inDown}>
               <m.div animate={{ y: [0, -15, 0] }} transition={{ duration: 8, repeat: Infinity }}>
-                <Image
-                  disabledEffect
-                  alt="sidebar"
-                  src={`https://minimal-assets-api.vercel.app/assets/images/home/theme-color/block1-${themeColorPresets}.png`}
-                />
+
+                <Grid item xs={12} md={2} lg={20}>
+                  <AppAreaInstalled />
+                </Grid>
               </m.div>
             </m.div>
-          </Box>
+          </Box> */}
 
-          <Box sx={{ position: 'absolute', top: 0 }}>
+          <Box sx={{ position: 'absolute', top: '-7%' ,width:'98%'} }>
             <m.div variants={varFade().inDown}>
               <m.div animate={{ y: [-5, 10, -5] }} transition={{ duration: 8, repeat: Infinity }}>
-                <Image
-                  disabledEffect
-                  alt="sidebar"
-                  src={`https://minimal-assets-api.vercel.app/assets/images/home/theme-color/block2-${themeColorPresets}.png`}
-                />
+                
+                <AppAreaInstalled />
+
               </m.div>
             </m.div>
           </Box>
 
-          <Box sx={{ position: 'absolute', top: 0 }}>
-            <m.div variants={varFade().inDown}>
-              <m.div animate={{ y: [-25, 5, -25] }} transition={{ duration: 10, repeat: Infinity }}>
-                <Image
-                  disabledEffect
-                  alt="sidebar"
-                  src={`https://minimal-assets-api.vercel.app/assets/images/home/theme-color/sidebar-${themeColorPresets}.png`}
-                />
-              </m.div>
-            </m.div>
-          </Box>
+
         </Box>
       </Container>
     </RootStyle>

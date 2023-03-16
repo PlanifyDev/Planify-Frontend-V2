@@ -41,7 +41,7 @@ const navConfig = [
   // MANAGEMENT
   // ----------------------------------------------------------------------
   {
-    subheader: 'management',
+    // subheader: 'management',
     items: [
       // USER
       // {
@@ -103,7 +103,7 @@ const navConfig = [
   // APP
   // ----------------------------------------------------------------------
   {
-    subheader: 'app',
+    subheader: 'Services',
     items: [
       {
         title: 'mail',

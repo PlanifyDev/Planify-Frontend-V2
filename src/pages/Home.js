@@ -15,6 +15,7 @@ import {
   HomeHugePackElements,
 } from '../sections/home';
 
+
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(() => ({
@@ -45,11 +46,11 @@ export default function HomePage() {
 
           <HomeColorPresets />
 
-
+          <HomeLookingFor />
 
           <HomePricingPlans />
 
-          <HomeLookingFor />
+          {/* <HomeLookingFor /> */}
 
           <HomeAdvertisement />
         </ContentStyle>
