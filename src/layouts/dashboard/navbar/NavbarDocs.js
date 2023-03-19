@@ -20,13 +20,13 @@ export default function NavbarDocs() {
       <DocIllustration sx={{ width: 1 }} />
 
       <div>
-        <Typography gutterBottom variant="subtitle1">
-          Hi, {user?.displayName}
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        {/* <Typography gutterBottom variant="subtitle1">
+           {user?.displayName}
+        </Typography> */}
+        {/* <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           Need help?
           <br /> Please check our docs
-        </Typography>
+        </Typography> */}
       </div>
 
       <Button href={PATH_DOCS} target="_blank" rel="noopener" variant="contained">

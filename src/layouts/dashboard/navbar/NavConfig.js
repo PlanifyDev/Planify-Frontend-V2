@@ -28,7 +28,7 @@ const navConfig = [
   // GENERAL
   // ----------------------------------------------------------------------
   {
-    subheader: 'general',
+    // subheader: 'general',
     items: [
       { title: 'app', path: PATH_DASHBOARD.general.app, icon: ICONS.dashboard },
       // { title: 'e-commerce', path: PATH_DASHBOARD.general.ecommerce, icon: ICONS.ecommerce },

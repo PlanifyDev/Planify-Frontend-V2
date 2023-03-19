@@ -53,7 +53,7 @@ export default function DashboardLayout() {
   if (verticalLayout) {
     return (
       <>
-        <DashboardHeader onOpenSidebar={() => setOpen(true)} verticalLayout={verticalLayout} />
+        <DashboardHeader onOpenSidebar={() => setOpen(true)} verticalLayout={verticalLayout}/>
 
         {isDesktop ? (
           <NavbarHorizontal />
@@ -93,7 +93,7 @@ export default function DashboardLayout() {
       <NavbarVertical isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
 
       <MainStyle collapseClick={collapseClick}>
-        <Outlet />
+        <Outlet/>
       </MainStyle>
     </Box>
   );
