@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Box, Link, Typography } from '@mui/material';
+import { Box, Button, Link, Typography } from '@mui/material';
 // hooks
 import useAuth from '../../../hooks/useAuth';
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
 // components
 import MyAvatar from '../../../components/MyAvatar';
+// import { handleBreakpoints } from '@mui/system';
 
 // ----------------------------------------------------------------------
 
@@ -33,6 +34,7 @@ export default function NavbarAccount({ isCollapse }) {
   const { user } = useAuth();
 
   return (
+    // change route to design page {PATH_DASHBOARD.user.account}
     <Link underline="none" color="inherit" component={RouterLink} to={PATH_DASHBOARD.user.account}>
       <RootStyle
         sx={{
@@ -41,7 +43,10 @@ export default function NavbarAccount({ isCollapse }) {
           }),
         }}
       >
-        <MyAvatar />
+        {/* <MyAvatar /> */}
+        <Button target="_blank" rel="noopener" variant="contained">
+          Planify Now
+        </Button>
 
         <Box
           sx={{
@@ -64,6 +69,9 @@ export default function NavbarAccount({ isCollapse }) {
           </Typography>
         </Box>
       </RootStyle>
+      {/* <Button  target="_blank" rel="noopener" variant="contained">
+        Documentation
+      </Button> */}
     </Link>
   );
 }
