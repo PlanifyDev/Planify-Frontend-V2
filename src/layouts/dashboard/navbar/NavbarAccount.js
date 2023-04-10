@@ -8,7 +8,7 @@ import useAuth from '../../../hooks/useAuth';
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
 // components
-import MyAvatar from '../../../components/MyAvatar';
+// import MyAvatar from '../../../components/MyAvatar';
 // import { handleBreakpoints } from '@mui/system';
 
 // ----------------------------------------------------------------------

@@ -88,7 +88,7 @@ export default function EcommerceProductDetails() {
           links={[
             { name: 'Dashboard', href: PATH_DASHBOARD.root },
             {
-              name: 'E-Commerce',
+              name: 'my work',
               href: PATH_DASHBOARD.eCommerce.root,
             },
             {

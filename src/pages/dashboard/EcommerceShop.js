@@ -108,14 +108,10 @@ export default function EcommerceShop() {
     <Page title="Ecommerce: Shop">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
-          heading="Shop"
+          heading="Projects"
           links={[
-            { name: 'Dashboard', href: PATH_DASHBOARD.root },
-            {
-              name: 'E-Commerce',
-              href: PATH_DASHBOARD.eCommerce.root,
-            },
-            { name: 'Shop' },
+  
+            { name: ' ' },
           ]}
         />
 
@@ -130,12 +126,12 @@ export default function EcommerceShop() {
 
           <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
             <FormProvider methods={methods}>
-              <ShopFilterSidebar
+              {/* <ShopFilterSidebar
                 onResetAll={handleResetFilter}
                 isOpen={openFilter}
                 onOpen={handleOpenFilter}
                 onClose={handleCloseFilter}
-              />
+              /> */}
             </FormProvider>
 
             <ShopProductSort />

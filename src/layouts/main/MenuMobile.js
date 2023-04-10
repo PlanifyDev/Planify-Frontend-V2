@@ -140,14 +140,14 @@ function MenuMobileItem({ item, isOpen, onOpen }) {
     );
   }
 
-  if (title === 'Documentation') {
-    return (
-      <ListItemStyle href={path} target="_blank" rel="noopener" component={Link}>
-        <ListItemIcon>{icon}</ListItemIcon>
-        <ListItemText disableTypography primary={title} />
-      </ListItemStyle>
-    );
-  }
+  // if (title === 'Documentation') {
+  //   return (
+  //     <ListItemStyle href={path} target="_blank" rel="noopener" component={Link}>
+  //       <ListItemIcon>{icon}</ListItemIcon>
+  //       <ListItemText disableTypography primary={title} />
+  //     </ListItemStyle>
+  //   );
+  // }
 
   return (
     <ListItemStyle

@@ -41,9 +41,9 @@ export default function CartWidget() {
 
   return (
     <RootStyle to={PATH_DASHBOARD.eCommerce.checkout}>
-      <Badge showZero badgeContent={totalItems} color="error" max={99}>
+      {/* <Badge showZero badgeContent={totalItems} color="error" max={99}>
         <Iconify icon={'eva:shopping-cart-fill'} width={24} height={24} />
-      </Badge>
+      </Badge> */}
     </RootStyle>
   );
 }

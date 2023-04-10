@@ -8,16 +8,16 @@ import useSettings from '../../hooks/useSettings';
 import Page from '../../components/Page';
 // sections
 import {
-  AppWidget,
+  // AppWidget,
   AppWelcome,
   AppFeatured,
-  AppNewInvoice,
-  AppTopAuthors,
-  AppTopRelated,
-  AppAreaInstalled,
-  AppWidgetSummary,
-  AppCurrentDownload,
-  AppTopInstalledCountries,
+  // AppNewInvoice,
+  // AppTopAuthors,
+  // AppTopRelated,
+  // AppAreaInstalled,
+  // AppWidgetSummary,
+  // AppCurrentDownload,
+  // AppTopInstalledCountries,
 } from '../../sections/@dashboard/general/app';
 
 // ----------------------------------------------------------------------

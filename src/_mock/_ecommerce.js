@@ -33,14 +33,14 @@ export const _ecommerceBestSalesman = [...Array(5)].map((_, index) => ({
 
 export const _ecommerceLatestProducts = [...Array(5)].map((_, index) => ({
   id: _mock.id(index),
-  name: PRODUCT_NAME[index],
+  // name: PRODUCT_NAME[index],
   image: _mock.image.product(index),
-  price: _mock.number.price(index),
-  priceSale: index === 0 || index === 3 ? 0 : _mock.number.price(index),
-  colors: (index === 0 && ['#2EC4B6', '#E71D36', '#FF9F1C', '#011627']) ||
-    (index === 1 && ['#92140C', '#FFCF99']) ||
-    (index === 2 && ['#0CECDD', '#FFF338', '#FF67E7', '#C400FF', '#52006A', '#046582']) ||
-    (index === 3 && ['#845EC2', '#E4007C', '#2A1A5E']) || ['#090088'],
+  // price: _mock.number.price(index),
+  // priceSale: index === 0 || index === 3 ? 0 : _mock.number.price(index),
+  // colors: (index === 0 && ['#2EC4B6', '#E71D36', '#FF9F1C', '#011627']) ||
+  //   (index === 1 && ['#92140C', '#FFCF99']) ||
+  //   (index === 2 && ['#0CECDD', '#FFF338', '#FF67E7', '#C400FF', '#52006A', '#046582']) ||
+  //   (index === 3 && ['#845EC2', '#E4007C', '#2A1A5E']) || ['#090088'],
 }));
 
 export const _ecommerceNewProducts = [...Array(5)].map((_, index) => ({

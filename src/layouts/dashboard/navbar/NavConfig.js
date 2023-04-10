@@ -60,29 +60,28 @@ const navConfig = [
 
       // E-COMMERCE
       {
-        title: 'e-commerce',
+        title: 'My Work',
         path: PATH_DASHBOARD.eCommerce.root,
         icon: ICONS.cart,
         children: [
+          // all projects
           { title: 'shop', path: PATH_DASHBOARD.eCommerce.shop },
-          { title: 'product', path: PATH_DASHBOARD.eCommerce.demoView },
-          { title: 'list', path: PATH_DASHBOARD.eCommerce.list },
-          { title: 'create', path: PATH_DASHBOARD.eCommerce.new },
-          { title: 'edit', path: PATH_DASHBOARD.eCommerce.demoEdit },
-          { title: 'checkout', path: PATH_DASHBOARD.eCommerce.checkout },
+          // specific project vergions
+          // { title: 'product', path: PATH_DASHBOARD.eCommerce.demoView },
+
         ],
       },
 
       // INVOICE
       {
-        title: 'invoice',
+        title: 'analysis',
         path: PATH_DASHBOARD.invoice.root,
         icon: ICONS.invoice,
         children: [
           { title: 'list', path: PATH_DASHBOARD.invoice.list },
           { title: 'details', path: PATH_DASHBOARD.invoice.demoView },
-          { title: 'create', path: PATH_DASHBOARD.invoice.new },
-          { title: 'edit', path: PATH_DASHBOARD.invoice.demoEdit },
+          // { title: 'create', path: PATH_DASHBOARD.invoice.new },
+          // { title: 'edit', path: PATH_DASHBOARD.invoice.demoEdit },
         ],
       },
 
@@ -94,7 +93,7 @@ const navConfig = [
         children: [
           { title: 'posts', path: PATH_DASHBOARD.blog.posts },
           { title: 'post', path: PATH_DASHBOARD.blog.demoView },
-          { title: 'create', path: PATH_DASHBOARD.blog.new },
+          // { title: 'create', path: PATH_DASHBOARD.blog.new },
         ],
       },
     ],
@@ -103,21 +102,21 @@ const navConfig = [
   // APP
   // ----------------------------------------------------------------------
   {
-    subheader: 'Services',
+    // subheader: 'Services',
     items: [
-      {
-        title: 'mail',
-        path: PATH_DASHBOARD.mail.root,
-        icon: ICONS.mail,
-        info: (
-          <Label variant="outlined" color="error">
-            +32
-          </Label>
-        ),
-      },
-      { title: 'chat', path: PATH_DASHBOARD.chat.root, icon: ICONS.chat },
-      { title: 'calendar', path: PATH_DASHBOARD.calendar, icon: ICONS.calendar },
-      { title: 'kanban', path: PATH_DASHBOARD.kanban, icon: ICONS.kanban },
+      // {
+      //   title: 'mail',
+      //   path: PATH_DASHBOARD.mail.root,
+      //   icon: ICONS.mail,
+      //   info: (
+      //     <Label variant="outlined" color="error">
+      //       +32
+      //     </Label>
+      //   ),
+      // },
+      // { title: 'chat', path: PATH_DASHBOARD.chat.root, icon: ICONS.chat },
+      // { title: 'calendar', path: PATH_DASHBOARD.calendar, icon: ICONS.calendar },
+      // { title: 'kanban', path: PATH_DASHBOARD.kanban, icon: ICONS.kanban },
     ],
   },
 ];
