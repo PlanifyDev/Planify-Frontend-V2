@@ -1,3 +1,5 @@
+// project details page
+
 import { sentenceCase } from 'change-case';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -30,18 +32,18 @@ import CartWidget from '../../sections/@dashboard/e-commerce/CartWidget';
 
 const PRODUCT_DESCRIPTION = [
   {
-    title: '100% Original',
-    description: 'Chocolate bar candy canes ice cream toffee cookie halvah.',
+    title: 'Acurracy',
+    description: 'Our website provides accurate and reliable floor plan designs.',
     icon: 'ic:round-verified',
   },
   {
-    title: '10 Day Replacement',
-    description: 'Marshmallow biscuit donut dragée fruitcake wafer.',
+    title: 'less Time',
+    description: 'Maximize your productivity with our website, time-saving floor plan designs, powered by AI, for efficient and streamlined planning',
     icon: 'eva:clock-fill',
   },
   {
-    title: 'Year Warranty',
-    description: 'Cotton candy gingerbread cake I love sugar sweet.',
+    title: 'Secured',
+    description: 'your data is safe here.',
     icon: 'ic:round-verified-user',
   },
 ];
@@ -81,21 +83,21 @@ export default function EcommerceProductDetails() {
   };
 
   return (
-    <Page title="Ecommerce: Product Details">
+    <Page title="projects: project Details">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
-          heading="Product Details"
+          heading="Project Details"
           links={[
-            { name: 'Dashboard', href: PATH_DASHBOARD.root },
+            // { name: 'Dashboard', href: PATH_DASHBOARD.root },
+            // {
+            //   name: 'my work',
+            //   href: PATH_DASHBOARD.eCommerce.root,
+            // },
             {
-              name: 'my work',
-              href: PATH_DASHBOARD.eCommerce.root,
-            },
-            {
-              name: 'Shop',
+              // name: 'Shop',
               href: PATH_DASHBOARD.eCommerce.shop,
             },
-            { name: sentenceCase(name) },
+            // { name: sentenceCase(name) },
           ]}
         />
 
@@ -112,7 +114,7 @@ export default function EcommerceProductDetails() {
                   <ProductDetailsSummary
                     product={product}
                     cart={checkout.cart}
-                    onAddCart={handleAddCart}
+                    // onAddCart={handleAddCart}
                     onGotoStep={handleGotoStep}
                   />
                 </Grid>
@@ -135,7 +137,7 @@ export default function EcommerceProductDetails() {
               ))}
             </Grid>
 
-            <Card>
+            {/* <Card>
               <TabContext value={value}>
                 <Box sx={{ px: 3, bgcolor: 'background.neutral' }}>
                   <TabList onChange={(e, value) => setValue(value)}>
@@ -160,7 +162,7 @@ export default function EcommerceProductDetails() {
                   <ProductDetailsReview product={product} />
                 </TabPanel>
               </TabContext>
-            </Card>
+            </Card> */}
           </>
         )}
 

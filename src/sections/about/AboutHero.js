@@ -52,7 +52,7 @@ export default function AboutHero() {
               }}
             >
               Let's work together and
-              <br /> make awesome site easily
+              <br /> make awesome design easily
             </Typography>
           </m.div>
         </ContentStyle>

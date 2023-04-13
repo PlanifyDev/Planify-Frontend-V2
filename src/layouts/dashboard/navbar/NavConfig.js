@@ -1,3 +1,5 @@
+
+// my work page المشاريع المعروضه
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
 // components
@@ -37,6 +39,15 @@ const navConfig = [
       // { title: 'booking', path: PATH_DASHBOARD.general.booking, icon: ICONS.booking },
     ],
   },
+  // {
+  //   items: [
+  //     // all projects
+  //     { title: 'My Work', path: PATH_DASHBOARD.eCommerce.shop , icon: ICONS.cart},
+  //     // specific project vergions
+  //     // { title: 'product', path: PATH_DASHBOARD.eCommerce.demoView },
+
+  //   ],
+  // },
 
   // MANAGEMENT
   // ----------------------------------------------------------------------
@@ -63,19 +74,19 @@ const navConfig = [
         title: 'My Work',
         path: PATH_DASHBOARD.eCommerce.root,
         icon: ICONS.cart,
-        children: [
-          // all projects
-          { title: 'shop', path: PATH_DASHBOARD.eCommerce.shop },
-          // specific project vergions
-          // { title: 'product', path: PATH_DASHBOARD.eCommerce.demoView },
+        // children: [
+        //   // all projects
+        //   { title: 'projects', path: PATH_DASHBOARD.eCommerce.shop },
+        //   // specific project vergions
+        //   // { title: 'product', path: PATH_DASHBOARD.eCommerce.demoView },
 
-        ],
+        // ],
       },
 
       // INVOICE
       {
         title: 'analysis',
-        path: PATH_DASHBOARD.invoice.root,
+        path: PATH_DASHBOARD.invoice.shop,
         icon: ICONS.invoice,
         children: [
           { title: 'list', path: PATH_DASHBOARD.invoice.list },

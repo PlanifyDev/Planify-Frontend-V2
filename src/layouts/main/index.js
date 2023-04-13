@@ -1,3 +1,5 @@
+// footer
+
 import { useLocation, Outlet } from 'react-router-dom';
 // @mui
 import { Box, Link, Container, Typography, Stack } from '@mui/material';

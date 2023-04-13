@@ -108,10 +108,9 @@ export default function EcommerceShop() {
     <Page title="Ecommerce: Shop">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
-          heading="Projects"
+          heading="My Work"
           links={[
-  
-            { name: ' ' },
+            { name: '' },
           ]}
         />
 

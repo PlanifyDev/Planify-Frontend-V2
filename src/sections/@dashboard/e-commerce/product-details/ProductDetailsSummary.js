@@ -1,3 +1,5 @@
+// product details card
+
 import PropTypes from 'prop-types';
 import { sentenceCase } from 'change-case';
 import { useNavigate } from 'react-router-dom';
@@ -120,15 +122,15 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
   return (
     <RootStyle {...other}>
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-        <Label
+        {/* <Label
           variant={theme.palette.mode === 'light' ? 'ghost' : 'filled'}
           color={inventoryType === 'in_stock' ? 'success' : 'error'}
           sx={{ textTransform: 'uppercase' }}
         >
           {sentenceCase(inventoryType || '')}
-        </Label>
+        </Label> */}
 
-        <Typography
+        {/* <Typography
           variant="overline"
           sx={{
             mt: 2,
@@ -138,35 +140,35 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
           }}
         >
           {status}
-        </Typography>
+        </Typography> */}
 
-        <Typography variant="h5" paragraph>
+        {/* <Typography variant="h5" paragraph>
           {name}
-        </Typography>
+        </Typography> */}
 
-        <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2 }}>
-          <Rating value={totalRating} precision={0.1} readOnly />
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        {/* <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2 }}> */}
+          {/* <Rating value={totalRating} precision={0.1} readOnly /> */}
+          {/* <Typography variant="body2" sx={{ color: 'text.secondary' }}>
             ({fShortenNumber(totalReview)}
             reviews)
-          </Typography>
-        </Stack>
+          </Typography> */}
+        {/* </Stack> */}
 
-        <Typography variant="h4" sx={{ mb: 3 }}>
+        {/* <Typography variant="h4" sx={{ mb: 3 }}>
           <Box component="span" sx={{ color: 'text.disabled', textDecoration: 'line-through' }}>
             {priceSale && fCurrency(priceSale)}
           </Box>
           &nbsp;{fCurrency(price)}
-        </Typography>
+        </Typography> */}
 
-        <Divider sx={{ borderStyle: 'dashed' }} />
+        {/* <Divider sx={{ borderStyle: 'dashed' }} /> */}
 
         <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 3 }}>
-          <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
+          {/* <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
             Color
-          </Typography>
+          </Typography> */}
 
-          <Controller
+          {/* <Controller
             name="color"
             control={control}
             render={({ field }) => (
@@ -182,12 +184,12 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
                 }}
               />
             )}
-          />
+          /> */}
         </Stack>
 
-        <Stack direction="row" justifyContent="space-between" sx={{ mb: 3 }}>
+        <Stack direction="row" justifyContent="space-between" sx={{ mb: 5 }}>
           <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
-            Size
+            Rooms
           </Typography>
 
           <RHFSelect
@@ -199,7 +201,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
             }}
             helperText={
               <Link underline="always" color="text.secondary">
-                Size Chart
+                room number
               </Link>
             }
           >
@@ -211,9 +213,36 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
           </RHFSelect>
         </Stack>
 
+
+        {/* <Stack direction="row" justifyContent="space-between" sx={{ mb: 5 }}>
+          <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
+            Balacny
+          </Typography>
+
+          <RHFSelect
+            name="size"
+            size="small"
+            fullWidth={false}
+            FormHelperTextProps={{
+              sx: { textAlign: 'right', margin: 0, mt: 1 },
+            }}
+            helperText={
+              <div underline="always" color="text.secondary">
+                room number
+              </div>
+            }
+          >
+            {sizes.map((size) => (
+              <option key={size} value={size}>
+                {size}
+              </option>
+            ))}
+          </RHFSelect>
+        </Stack> */}
+
         <Stack direction="row" justifyContent="space-between" sx={{ mb: 3 }}>
           <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
-            Quantity
+            Bathrooms
           </Typography>
 
           <div>
@@ -221,19 +250,19 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
               name="quantity"
               quantity={values.quantity}
               available={available}
-              onIncrementQuantity={() => setValue('quantity', values.quantity + 1)}
+              onIncrementQuantity={() => setValue('quantity', values.quantity + 4)}
               onDecrementQuantity={() => setValue('quantity', values.quantity - 1)}
             />
-            <Typography variant="caption" component="div" sx={{ mt: 1, textAlign: 'right', color: 'text.secondary' }}>
+            {/* <Typography variant="caption" component="div" sx={{ mt: 1, textAlign: 'right', color: 'text.secondary' }}>
               Available: {available}
-            </Typography>
+            </Typography> */}
           </div>
         </Stack>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
         <Stack direction="row" spacing={2} sx={{ mt: 5 }}>
-          <Button
+          {/* <Button
             fullWidth
             disabled={isMaxQuantity}
             size="large"
@@ -244,10 +273,10 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
             sx={{ whiteSpace: 'nowrap' }}
           >
             Add to Cart
-          </Button>
+          </Button> */}
 
           <Button fullWidth size="large" type="submit" variant="contained">
-            Buy Now
+            Generate 
           </Button>
         </Stack>
 
@@ -291,7 +320,7 @@ function Incrementer({ available, quantity, onIncrementQuantity, onDecrementQuan
       </Typography>
 
       <IconButton size="small" color="inherit" disabled={quantity >= available} onClick={onIncrementQuantity}>
-        <Iconify icon={'eva:plus-fill'} width={14} height={14} />
+        <Iconify icon={'eva:plus-fill'} width={14} height={14} />[]
       </IconButton>
     </Box>
   );

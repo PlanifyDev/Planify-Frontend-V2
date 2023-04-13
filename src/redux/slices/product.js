@@ -139,35 +139,35 @@ const slice = createSlice({
       state.checkout.activeStep = goToStep;
     },
 
-    increaseQuantity(state, action) {
-      const productId = action.payload;
-      const updateCart = state.checkout.cart.map((product) => {
-        if (product.id === productId) {
-          return {
-            ...product,
-            quantity: product.quantity + 1,
-          };
-        }
-        return product;
-      });
+    // increaseQuantity(state, action) {
+    //   const productId = action.payload;
+    //   const updateCart = state.checkout.cart.map((product) => {
+    //     if (product.id === productId) {
+    //       return {
+    //         ...product,
+    //         quantity: product.quantity + 1,
+    //       };
+    //     }
+    //     return product;
+    //   });
 
-      state.checkout.cart = updateCart;
-    },
+    //   state.checkout.cart = updateCart;
+    // },
 
-    decreaseQuantity(state, action) {
-      const productId = action.payload;
-      const updateCart = state.checkout.cart.map((product) => {
-        if (product.id === productId) {
-          return {
-            ...product,
-            quantity: product.quantity - 1,
-          };
-        }
-        return product;
-      });
+    // decreaseQuantity(state, action) {
+    //   const productId = action.payload;
+    //   const updateCart = state.checkout.cart.map((product) => {
+    //     if (product.id === productId) {
+    //       return {
+    //         ...product,
+    //         quantity: product.quantity - 1,
+    //       };
+    //     }
+    //     return product;
+    //   });
 
-      state.checkout.cart = updateCart;
-    },
+    //   state.checkout.cart = updateCart;
+    // },
 
     createBilling(state, action) {
       state.checkout.billing = action.payload;

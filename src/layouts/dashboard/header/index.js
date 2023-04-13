@@ -1,3 +1,5 @@
+// header components بتاع النوتفكيش
+
 import PropTypes from 'prop-types';
 // @mui
 import { styled } from '@mui/material/styles';
@@ -14,12 +16,11 @@ import Logo from '../../../components/Logo';
 import Iconify from '../../../components/Iconify';
 import { IconButtonAnimate } from '../../../components/animate';
 //
-import Searchbar from './Searchbar';
+// import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';
-import LanguagePopover from './LanguagePopover';
-import ContactsPopover from './ContactsPopover';
+// import LanguagePopover from './LanguagePopover';
+// import ContactsPopover from './ContactsPopover';
 import NotificationsPopover from './NotificationsPopover';
-
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(AppBar, {

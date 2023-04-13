@@ -18,7 +18,7 @@ const RootStyle = styled('div')(({ theme }) => ({
   alignItems: 'center',
   padding: theme.spacing(2, 2.5),
   borderRadius: Number(theme.shape.borderRadius) * 1.5,
-  backgroundColor: theme.palette.grey[500_12],
+  // backgroundColor: theme.palette.grey[500_12],
   transition: theme.transitions.create('opacity', {
     duration: theme.transitions.duration.shorter,
   }),
@@ -44,9 +44,14 @@ export default function NavbarAccount({ isCollapse }) {
         }}
       >
         {/* <MyAvatar /> */}
-        <Button target="_blank" rel="noopener" variant="contained">
+        
+        {/* <Button target="_blank" rel="noopener" variant="contained">
           Planify Now
-        </Button>
+        </Button> */}
+
+        <Button  target="_blank" rel="noopener" variant="contained">
+        Planify Now
+      </Button>
 
         <Box
           sx={{
@@ -61,6 +66,7 @@ export default function NavbarAccount({ isCollapse }) {
             }),
           }}
         >
+         
           <Typography variant="subtitle2" noWrap>
             {user?.displayName}
           </Typography>
@@ -72,6 +78,7 @@ export default function NavbarAccount({ isCollapse }) {
       {/* <Button  target="_blank" rel="noopener" variant="contained">
         Documentation
       </Button> */}
+      
     </Link>
   );
 }
