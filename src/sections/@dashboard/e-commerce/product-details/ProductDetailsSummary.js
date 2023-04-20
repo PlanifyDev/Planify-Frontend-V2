@@ -250,7 +250,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
               name="quantity"
               quantity={values.quantity}
               available={available}
-              onIncrementQuantity={() => setValue('quantity', values.quantity + 4)}
+              onIncrementQuantity={() => setValue('quantity', values.quantity + 1)}
               onDecrementQuantity={() => setValue('quantity', values.quantity - 1)}
             />
             {/* <Typography variant="caption" component="div" sx={{ mt: 1, textAlign: 'right', color: 'text.secondary' }}>
@@ -320,7 +320,7 @@ function Incrementer({ available, quantity, onIncrementQuantity, onDecrementQuan
       </Typography>
 
       <IconButton size="small" color="inherit" disabled={quantity >= available} onClick={onIncrementQuantity}>
-        <Iconify icon={'eva:plus-fill'} width={14} height={14} />[]
+        <Iconify icon={'eva:plus-fill'} width={14} height={14} />
       </IconButton>
     </Box>
   );
