@@ -12,6 +12,10 @@ import AuthGuard from '../guards/AuthGuard';
 import { PATH_AFTER_LOGIN } from '../config';
 // components
 import LoadingScreen from '../components/LoadingScreen';
+import UserProfile from '../pages/dashboard/UserProfile';
+import UserList from '../pages/dashboard/UserList';
+import UserCreate from '../pages/dashboard/UserCreate';
+import UserCards from '../pages/dashboard/UserCards';
 
 // ----------------------------------------------------------------------
 
@@ -82,18 +86,18 @@ export default function Router() {
             // { path: 'checkout', element: <EcommerceCheckout /> },
           ],
         },
-        // {
-        //   path: 'user',
-        //   children: [
-        //     { element: <Navigate to="/dashboard/user/profile" replace />, index: true },
-        //     { path: 'profile', element: <UserProfile /> },
-        //     { path: 'cards', element: <UserCards /> },
-        //     { path: 'list', element: <UserList /> },
-        //     { path: 'new', element: <UserCreate /> },
-        //     { path: ':name/edit', element: <UserCreate /> },
-        //     { path: 'account', element: <UserAccount /> },
-        //   ],
-        // },
+        {
+          path: 'user',
+          children: [
+            { element: <Navigate to="/dashboard/user/profile" replace />, index: true },
+            { path: 'profile', element: <UserProfile /> },
+            { path: 'cards', element: <UserCards /> },
+            { path: 'list', element: <UserList /> },
+            { path: 'new', element: <UserCreate /> },
+            { path: ':name/edit', element: <UserCreate /> },
+            { path: 'account', element: <UserAccount /> },
+          ],
+        },
         {
           path: 'invoice',
           children: [
@@ -201,7 +205,7 @@ const BlogPost = Loadable(lazy(() => import('../pages/dashboard/BlogPost')));
 // const UserProfile = Loadable(lazy(() => import('../pages/dashboard/UserProfile')));
 // const UserCards = Loadable(lazy(() => import('../pages/dashboard/UserCards')));
 // const UserList = Loadable(lazy(() => import('../pages/dashboard/UserList')));
-// const UserAccount = Loadable(lazy(() => import('../pages/dashboard/UserAccount')));
+const UserAccount = Loadable(lazy(() => import('../pages/dashboard/UserAccount')));
 // const UserCreate = Loadable(lazy(() => import('../pages/dashboard/UserCreate')));
 
 // APP

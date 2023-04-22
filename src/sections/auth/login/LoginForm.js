@@ -31,8 +31,8 @@ export default function LoginForm() {
   });
 
   const defaultValues = {
-    email: 'demo@minimals.cc',
-    password: 'demo1234',
+    email: 'mo.aggour@gmail.com',
+    password: '12345678',
     remember: true,
   };
 

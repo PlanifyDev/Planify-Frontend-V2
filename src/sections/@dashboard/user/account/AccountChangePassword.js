@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
-import axios from 'axios';
+// import axios from 'axios';
+
 import { useSnackbar } from 'notistack';
 import { accessToken } from 'mapbox-gl';
 import { User } from '@auth0/auth0-spa-js';
@@ -11,6 +12,7 @@ import { Stack, Card } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // components
 import { FormProvider, RHFTextField } from '../../../../components/hook-form';
+import axios from '../../../../utils/axios';
 
 
 // ----------------------------------------------------------------------
@@ -51,7 +53,7 @@ export default function AccountChangePassword() {
         'authorization': `${accessToken}`
       };
       console.log(uid);
-      axios.put(`http://localhost:3000/updateall/${uid}`, {oldpassword: data.oldPassword, password: data.newPassword})
+      axios.put(`/auth/update-all/${uid}`, {oldpassword: data.oldPassword, password: data.newPassword})
       .then((res) => {})
       .catch((err) => {})
 

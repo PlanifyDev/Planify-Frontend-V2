@@ -112,7 +112,7 @@ function AuthProvider({ children }) {
   }, []);
 
   const login = async (email, password) => {
-    const response = await axios.post('http://localhost:3000/signin', {
+    const response = await axios.post('/auth/signin', {
       email,
       password,
     });
@@ -136,7 +136,7 @@ function AuthProvider({ children }) {
       email,
       password
     });
-    const response = await axios.post('http://localhost:3000/signup', {
+    const response = await axios.post('/auth/signup', {
       email,
       password,
       firstname,
@@ -160,7 +160,7 @@ function AuthProvider({ children }) {
     const accessToken = window.localStorage.getItem('accessToken');
     if (accessToken ) {
       const uid = jwtDecode(accessToken).userId;
-      const response = await axios.get(`http://localhost:3000/signout/${uid}`);
+      const response = await axios.get(`/auth/signout/${uid}`);
     }
     setSession(null);
     dispatch({ type: 'LOGOUT' });
