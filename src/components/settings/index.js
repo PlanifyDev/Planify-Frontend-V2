@@ -13,19 +13,20 @@ import cssStyles from '../../utils/cssStyles';
 // config
 import { NAVBAR, defaultSettings } from '../../config';
 //
-// import Iconify from '../Iconify';
+import Iconify from '../Iconify';
 import Scrollbar from '../Scrollbar';
-import { varFade } from '../animate';
-// import { IconButtonAnimate } from '../animate';
 
+
+// import { varFade } from '../animate';
+import { IconButtonAnimate , varFade} from '../animate';
 //
 import ToggleButton from './ToggleButton';
-// import SettingMode from './SettingMode';
-// import SettingLayout from './SettingLayout';
-// import SettingStretch from './SettingStretch';
-// import SettingDirection from './SettingDirection';
-// import SettingFullscreen from './SettingFullscreen';
-// import SettingColorPresets from './SettingColorPresets';
+import SettingMode from './SettingMode';
+import SettingLayout from './SettingLayout';
+import SettingStretch from './SettingStretch';
+import SettingDirection from './SettingDirection';
+import SettingFullscreen from './SettingFullscreen';
+import SettingColorPresets from './SettingColorPresets';
 
 // ----------------------------------------------------------------------
 
@@ -99,54 +100,54 @@ export default function Settings() {
         sx={{ background: 'transparent', zIndex: (theme) => theme.zIndex.drawer + 1 }}
       />
 
-      {/* {!open && <ToggleButton open={open} notDefault={notDefault} onToggle={handleToggle} />} */}
+      {!open && <ToggleButton open={open} notDefault={notDefault} onToggle={handleToggle} />}
 
       <AnimatePresence>
         {open && (
           <>
             <RootStyle {...varSidebar}>
               <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ py: 2, pr: 1, pl: 2.5 }}>
-                {/* <Typography variant="subtitle1">Settings</Typography> */}
-                {/* <div>
+                <Typography variant="subtitle1">Settings</Typography>
+                <div>
                   <IconButtonAnimate onClick={onResetSetting}>
                     <Iconify icon={'ic:round-refresh'} width={20} height={20} />
                   </IconButtonAnimate>
                   <IconButtonAnimate onClick={handleClose}>
                     <Iconify icon={'eva:close-fill'} width={20} height={20} />
                   </IconButtonAnimate>
-                </div> */}
+                </div>
               </Stack>
 
-              {/* <Divider sx={{ borderStyle: 'dashed' }} /> */}
+              <Divider sx={{ borderStyle: 'dashed' }} />
 
               <Scrollbar sx={{ flexGrow: 1 }}>
                 <Stack spacing={3} sx={{ p: 3 }}>
-                  {/* <Stack spacing={1.5}>
+                  <Stack spacing={1.5}>
                     <Typography variant="subtitle2">Mode</Typography>
                     <SettingMode />
-                  </Stack> */}
+                  </Stack>
 
-                  {/* <Stack spacing={1.5}>
+                  <Stack spacing={1.5}>
                     <Typography variant="subtitle2">Direction</Typography>
                     <SettingDirection />
-                  </Stack> */}
+                  </Stack>
 
-                  {/* <Stack spacing={1.5}>
+                  <Stack spacing={1.5}>
                     <Typography variant="subtitle2">Layout</Typography>
                     <SettingLayout />
-                  </Stack> */}
+                  </Stack>
 
-                  {/* <Stack spacing={1.5}>
+                  <Stack spacing={1.5}>
                     <Typography variant="subtitle2">Presets</Typography>
                     <SettingColorPresets />
-                  </Stack> */}
+                  </Stack>
 
-                  {/* <Stack spacing={1.5}>
+                  <Stack spacing={1.5}>
                     <Typography variant="subtitle2">Stretch</Typography>
                     <SettingStretch />
-                  </Stack> */}
+                  </Stack>
 
-                  {/* <SettingFullscreen /> */}
+                  <SettingFullscreen />
                 </Stack>
               </Scrollbar>
             </RootStyle>
