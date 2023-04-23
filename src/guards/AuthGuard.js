@@ -12,9 +12,7 @@ import LoadingScreen from '../components/LoadingScreen';
 
 // ----------------------------------------------------------------------
 const accessToken = window.localStorage.getItem('accessToken');
-axios.defaults.headers.common = {
-  'authorization': `${accessToken}`
-};
+
 AuthGuard.propTypes = {
   children: PropTypes.node,
 };

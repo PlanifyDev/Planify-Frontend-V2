@@ -1,7 +1,6 @@
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 // @mui
 import jwtDecode from 'jwt-decode';
-import axios from 'axios';
 import { useSnackbar } from 'notistack';
 
 import { styled } from '@mui/material/styles';
@@ -16,6 +15,7 @@ import Iconify from '../../components/Iconify';
 // sections
 import { VerifyCodeForm } from '../../sections/auth/verify-code';
 
+import axios from '../../utils/axios';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -70,7 +70,7 @@ export default function VerifyCode() {
                   'authorization': `${accessToken}`
                 };
                 const uid = jwtDecode(accessToken).userId
-                axios.get(`http://localhost:3000/resend-verification/${uid}`)
+                axios.get(`/auth/resend-verification/${uid}`)
                 .then((res) => {
                   enqueueSnackbar('Verification code sent', { variant: 'success' });
                 })

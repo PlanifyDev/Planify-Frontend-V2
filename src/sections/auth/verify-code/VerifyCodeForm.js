@@ -3,7 +3,6 @@ import { useSnackbar } from 'notistack';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
-import axios from 'axios';
 
 // form
 import { useForm, Controller } from 'react-hook-form';
@@ -13,6 +12,7 @@ import { OutlinedInput, Stack } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // routes
 import { PATH_AUTH, PATH_DASHBOARD } from '../../../routes/paths';
+import axios from '../../../utils/axios';
 
 // ----------------------------------------------------------------------
 
@@ -78,25 +78,15 @@ export default function VerifyCodeForm() {
       'authorization': `${accessToken}`
     };
 
-    axios.put(`http://localhost:3000/verify/${id}`, { verificationCode: code })
+    axios.put(`/auth/verify/${id}`, { verificationCode: code })
       .then((res) => {
         enqueueSnackbar('Verify success!');
         const newAccessToken = res.data.jwt;
         window.localStorage.setItem('accessToken', newAccessToken)
         navigate(PATH_DASHBOARD.root, { replace: true });
       })
-
       .catch((error) => {
-        if (error.response.status === 401) {
-          enqueueSnackbar('Unauthorized!', { variant: 'error' });
-
-          window.localStorage.removeItem('accessToken').then((res) => {
-            navigate(PATH_AUTH.login, { replace: true });
-          });
-        }
-        if (error.response.status === 400) {
-          enqueueSnackbar('Wrong Code!', { variant: 'error' });
-        }
+          enqueueSnackbar(error.error, { variant: 'error' });
       });
 
   };
