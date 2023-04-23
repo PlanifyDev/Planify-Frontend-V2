@@ -50,7 +50,7 @@ export default function NavbarAccount({ isCollapse }) {
         </Button> */}
 
         <Button  target="_blank" rel="noopener" variant="contained"
-          style={{fontSize: !isCollapse &&'23px',  width: '100%'}}
+          style={{fontSize: !isCollapse &&'20px',  width: '100%'}}
         >
         Planify Now
       </Button>
