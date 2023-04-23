@@ -1,8 +1,8 @@
 {
-  "name": "React Material PlanifyUI",
-  "short_name": "Minimal-UI",
+  "name": "Planify",
+  "short_name": "Planify",
   "display": "standalone",
-  "start_url": "/",
+  "start_url": "/dashboard/app",
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "icons": [
