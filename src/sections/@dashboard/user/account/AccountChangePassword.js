@@ -47,18 +47,24 @@ export default function AccountChangePassword() {
     try {
       
       const accessToken = window.localStorage.getItem('accessToken');
-      const uid = JSON.parse(window.localStorage.getItem('user')).id
-      console.log(accessToken);
+    
       axios.defaults.headers.common = {
         'authorization': `${accessToken}`
       };
-      console.log(uid);
-      axios.put(`/auth/update-all/${uid}`, {oldpassword: data.oldPassword, password: data.newPassword})
-      .then((res) => {})
-      .catch((err) => {})
+      const uid = JSON.parse(window.localStorage.getItem('user')).id
+      axios.put(`/auth/update-all/${uid}`, {oldPassword: data.oldPassword, password: data.newPassword})
+      .then((res) => {      
+        enqueueSnackbar('Password changed successfully!');
 
-      reset();
-      enqueueSnackbar('Update success!');
+    })
+      .catch((err) => {
+        enqueueSnackbar(err.error, { variant: 'error' });
+
+      })
+      .finally((err) => {
+        reset();
+      })
+
     } catch (error) {
       console.error(error);
     }

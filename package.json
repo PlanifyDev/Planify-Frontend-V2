@@ -4,7 +4,10 @@
   "version": "3.3.0",
   "description": "Javascript Version",
   "private": true,
+  "homepage": "https://Planify-Frontend-V2.github.io/react-gh-pages",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "eject": "react-scripts eject",
@@ -134,6 +137,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "gh-pages": "^5.0.0",
     "prettier": "^2.5.1",
     "typescript": "^4.5.5",
     "webpack": "^5.79.0"

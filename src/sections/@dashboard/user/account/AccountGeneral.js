@@ -16,6 +16,10 @@ import { countries } from '../../../../_mock';
 // components
 import { FormProvider, RHFSwitch, RHFSelect, RHFTextField, RHFUploadAvatar } from '../../../../components/hook-form';
 
+import axios from '../../../../utils/axios';
+import { PATH_AUTH } from '../../../../routes/paths';
+
+
 // ----------------------------------------------------------------------
 
 export default function AccountGeneral() {
@@ -34,12 +38,12 @@ export default function AccountGeneral() {
     image_url: user?.photoURL || 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSUe2eaB9QYVkoJORkwnG2yfpPRqpqvRyUkWXOfvLOirm1mudvx',
     phoneNumber: user?.phoneNumber || '',
     country: user?.country || '',
-    address: user?.address || '',
-    state: user?.state || '',
-    city: user?.city || '',
-    zipCode: user?.zipCode || '',
-    about: user?.about || '',
-    isPublic: user?.isPublic || false,
+    // address: user?.address || '',
+    // state: user?.state || '',
+    // city: user?.city || '',
+    // zipCode: user?.zipCode || '',
+    // about: user?.about || '',
+    // isPublic: user?.isPublic || false,
   };
 
   const methods = useForm({
@@ -48,39 +52,45 @@ export default function AccountGeneral() {
   });
 
   const {
+    reset,
     setValue,
     handleSubmit,
     formState: { isSubmitting },
   } = methods;
 
-  const onSubmit = async () => {
+  const onSubmit = async (data) => {
     const accessToken = window.localStorage.getItem('accessToken');
     
-    // axios.defaults.headers.common = {
-    //   'authorization': `${accessToken}`
-    // };
+    axios.defaults.headers.common = {
+      'authorization': `${accessToken}`
+    };
 
-    // axios.put(`http://localhost:3000/updateall/${id}`, { verificationCode: code })
-    //   .then((res) => {
-    //     enqueueSnackbar('Verify success!');
-    //     const newAccessToken = res.data.jwt;
-    //     window.localStorage.setItem('accessToken', newAccessToken)
-    //     navigate(PATH_DASHBOARD.root, { replace: true });
-    //   })
+    const id = JSON.parse(window.localStorage.getItem('user')).id
 
-    //   .catch((error) => {
-    //     if (error.response.status === 401) {
-    //       enqueueSnackbar('Unauthorized!', { variant: 'error' });
+    axios.put(`/auth/update-all/${id}`, data)
+      .then((res) => {
+        enqueueSnackbar('Data edit success!');
+        // const newAccessToken = res.data.jwt;
+        // window.localStorage.setItem('accessToken', newAccessToken)
+        // navigate(PATH_DASHBOARD.root, { replace: true });
+      })
 
-    //       window.localStorage.removeItem('accessToken').then((res) => {
-    //         navigate(PATH_AUTH.login, { replace: true });
-    //       });
-    //     }
-    //     if (error.response.status === 400) {
-    //       enqueueSnackbar('Wrong Code!', { variant: 'error' });
-    //     }
-    //   });
-    enqueueSnackbar('Update success!');
+      .catch((error) => {
+        if (error.response.status === 401) {
+          enqueueSnackbar('Unauthorized!', { variant: 'error' });
+
+          window.localStorage.removeItem('accessToken').then((res) => {
+            // navigate(PATH_AUTH.login, { replace: true });
+          });
+        }
+        if (error.response.status === 400) {
+          enqueueSnackbar('Wrong Code!', { variant: 'error' });
+        }
+      })
+      .finally(() => {
+        reset();
+      });
+      
 
   };
 

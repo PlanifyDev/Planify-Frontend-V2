@@ -13,10 +13,10 @@ axiosInstance.interceptors.response.use(
   (error) => Promise.reject((error.response && error.response.data) || 'Something went wrong')
 );
 
-// const accessToken = window.localStorage.getItem('accessToken');
-// const uid = JSON.parse(window.localStorage.getItem('user')).id
-// axiosInstance.defaults.headers.common = {
-//   'authorization': `${accessToken}`
-// };
+const accessToken = window.localStorage.getItem('accessToken');
+const uid = JSON.parse(window.localStorage.getItem('user')).id
+axiosInstance.defaults.headers.common = {
+  'authorization': `${accessToken}`
+};
 
 export default axiosInstance;

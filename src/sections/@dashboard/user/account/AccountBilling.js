@@ -6,6 +6,7 @@ import { Box, Grid, Card, Button, Typography, Stack } from '@mui/material';
 import AccountBillingAddressBook from './AccountBillingAddressBook';
 import AccountBillingPaymentMethod from './AccountBillingPaymentMethod';
 import AccountBillingInvoiceHistory from './AccountBillingInvoiceHistory';
+import useAuth from '../../../../hooks/useAuth';
 
 // ----------------------------------------------------------------------
 
@@ -15,8 +16,12 @@ AccountBilling.propTypes = {
   invoices: PropTypes.array,
 };
 
+
 export default function AccountBilling({ cards, addressBook, invoices }) {
   const [open, setOpen] = useState(false);
+  const { user } = useAuth();
+  console.log('user.plan', user);
+
 
   return (
     <Grid container spacing={5}>
@@ -26,7 +31,7 @@ export default function AccountBilling({ cards, addressBook, invoices }) {
             <Typography variant="overline" sx={{ mb: 3, display: 'block', color: 'text.secondary' }}>
               Your Plan
             </Typography>
-            <Typography variant="h4">Premium</Typography>
+            <Typography variant="h4">{ user?.user_plan.toUpperCase() || ''}</Typography>
             <Box
               sx={{
                 mt: { xs: 2, sm: 0 },
