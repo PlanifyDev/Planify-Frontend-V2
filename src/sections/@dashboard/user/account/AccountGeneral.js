@@ -8,6 +8,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Grid, Card, Stack, Typography } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // hooks
+import axiosn from 'axios';
+import axios from '../../../../utils/axios';
+
 import useAuth from '../../../../hooks/useAuth';
 // utils
 import { fData } from '../../../../utils/formatNumber';
@@ -16,7 +19,6 @@ import { countries } from '../../../../_mock';
 // components
 import { FormProvider, RHFSwitch, RHFSelect, RHFTextField, RHFUploadAvatar } from '../../../../components/hook-form';
 
-import axios from '../../../../utils/axios';
 import { PATH_AUTH } from '../../../../routes/paths';
 
 
@@ -67,6 +69,7 @@ export default function AccountGeneral() {
 
     const id = JSON.parse(window.localStorage.getItem('user')).id
 
+   console.log(data)
     axios.put(`/auth/update-all/${id}`, data)
       .then((res) => {
         enqueueSnackbar('Data edit success!');
@@ -76,16 +79,18 @@ export default function AccountGeneral() {
       })
 
       .catch((error) => {
-        if (error.response.status === 401) {
-          enqueueSnackbar('Unauthorized!', { variant: 'error' });
+        enqueueSnackbar(error.error, { variant: 'error' });
 
-          window.localStorage.removeItem('accessToken').then((res) => {
-            // navigate(PATH_AUTH.login, { replace: true });
-          });
-        }
-        if (error.response.status === 400) {
-          enqueueSnackbar('Wrong Code!', { variant: 'error' });
-        }
+        // if (error.response.status === 401) {
+        //   enqueueSnackbar('Unauthorized!', { variant: 'error' });
+
+        //   window.localStorage.removeItem('accessToken').then((res) => {
+        //     // navigate(PATH_AUTH.login, { replace: true });
+        //   });
+        // }
+        // if (error.response.status === 400) {
+        //   enqueueSnackbar('Wrong Code!', { variant: 'error' });
+        // }
       })
       .finally(() => {
         reset();
@@ -94,13 +99,42 @@ export default function AccountGeneral() {
 
   };
 
+  const uploadAvatar = async (file) => {
+    const formData = new FormData();
+    formData.append('image', file);
+    try {
+      const response = await axiosn.post('https://api.imgbb.com/1/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+        params: {
+          key: '8d493e029a3607ac3f4c520c14d9d2d1' 
+        }
+      });
+  
+      const url = response.data.data.image.url
+      setValue(
+        'image_url',
+        url
+      );
+    
+    } catch (error) {
+      console.error("Failed to upload image to Imgur.", error);
+    }
+  }
+    
+
   const handleDrop = useCallback(
     (acceptedFiles) => {
       const file = acceptedFiles[0];
+      uploadAvatar(file);
+      console.log(file);
 
       if (file) {
+
+
         setValue(
-          'photoURL',
+          'image_url',
           Object.assign(file, {
             preview: URL.createObjectURL(file),
           })
@@ -110,6 +144,35 @@ export default function AccountGeneral() {
     [setValue]
   );
 
+  // update user data ans jwt token
+  const updateUser = async (data) => {
+    try {
+      const accessToken = window.localStorage.getItem('accessToken');
+      const id = JSON.parse(window.localStorage.getItem('user')).id
+
+      axios.defaults.headers.common = {
+        'authorization': `${accessToken}`
+      };
+    
+      axios.get(`/auth/get-user/${id}`, data)
+      .then((res) => {
+        console.log(res);
+        const newAccessToken = res.data.user.user_token;
+        window.localStorage.setItem('accessToken', newAccessToken)
+        // set user data
+        const user = res.data.user
+        user.id = id;
+        window.localStorage.setItem('user', JSON.stringify(user))
+      })
+      
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+    
+
+  updateUser()
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Grid container spacing={3}>

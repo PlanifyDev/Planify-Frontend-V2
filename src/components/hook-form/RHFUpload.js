@@ -14,7 +14,7 @@ RHFUploadAvatar.propTypes = {
 
 export function RHFUploadAvatar({ name, ...other }) {
   const { control } = useFormContext();
-
+  
   return (
     <Controller
       name={name}
@@ -24,6 +24,8 @@ export function RHFUploadAvatar({ name, ...other }) {
 
         return (
           <div>
+                      {console.log(name)}
+
             <UploadAvatar error={checkError} {...other} file={field.value} />
             {checkError && (
               <FormHelperText error sx={{ px: 2, textAlign: 'center' }}>
