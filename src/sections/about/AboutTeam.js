@@ -13,6 +13,7 @@ import Iconify from '../../components/Iconify';
 import { CarouselArrows } from '../../components/carousel';
 import SocialsButton from '../../components/SocialsButton';
 import { MotionViewport, varFade } from '../../components/animate';
+import {data} from './data';
 
 // ----------------------------------------------------------------------
 
@@ -81,7 +82,7 @@ export default function AboutTeam() {
       <Box sx={{ position: 'relative' }}>
         <CarouselArrows filled onNext={handleNext} onPrevious={handlePrevious}>
           <Slider ref={carouselRef} {...settings}>
-            {_carouselsMembers.map((member) => (
+            {data.map((member) => (
               <Box key={member.id} component={m.div} variants={varFade().in} sx={{ px: 1.5, py: 10 }}>
                 <MemberCard member={member} />
               </Box>
