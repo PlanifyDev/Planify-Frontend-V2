@@ -24,8 +24,6 @@ export function RHFUploadAvatar({ name, ...other }) {
 
         return (
           <div>
-                      {console.log(name)}
-
             <UploadAvatar error={checkError} {...other} file={field.value} />
             {checkError && (
               <FormHelperText error sx={{ px: 2, textAlign: 'center' }}>
