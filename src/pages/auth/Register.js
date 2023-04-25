@@ -83,7 +83,9 @@ export default function Register() {
         </HeaderStyle>
 
         {mdUp && (
-          <SectionStyle>
+          <SectionStyle
+          align="center"
+          >
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
               Design Floor Plans effectively with Planify
             </Typography>
@@ -92,6 +94,7 @@ export default function Register() {
               disabledEffect
               alt="register"
               src="https://images.edrawsoft.com/articles/floor-plan-maker/top-banner.svg"
+              maxWidth="80%"
             />
           </SectionStyle>
         )}

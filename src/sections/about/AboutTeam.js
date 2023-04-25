@@ -23,7 +23,7 @@ export default function AboutTeam() {
 
   const settings = {
     arrows: false,
-    slidesToShow: 4,
+    slidesToShow: 5,
     centerMode: true,
     centerPadding: '0px',
     rtl: Boolean(theme.direction === 'rtl'),
@@ -73,7 +73,7 @@ export default function AboutTeam() {
             color: (theme) => (theme.palette.mode === 'light' ? 'text.secondary' : 'common.white'),
           }}
         >
-          Planifywill provide you support if you have any problems, our support team will reply within a day and we
+          Planify will provide you support if you have any problems, our support team will reply within a day and we
           also have detailed documentation.
         </Typography>
       </m.div>
