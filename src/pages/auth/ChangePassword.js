@@ -48,7 +48,7 @@ export default function ChangePassword() {
             {!sent ? (
               <>
                 <Typography variant="h3" paragraph>
-                  Forgot your password?
+                  Change your Password
                 </Typography>
                 <Typography sx={{ color: 'text.secondary', mb: 5 }}>
                 To set a new password, please enter your desired password and confirm it below.
