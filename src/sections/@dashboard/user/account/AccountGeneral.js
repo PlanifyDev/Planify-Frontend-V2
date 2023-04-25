@@ -27,7 +27,7 @@ import { PATH_AUTH } from '../../../../routes/paths';
 export default function AccountGeneral() {
   const { enqueueSnackbar } = useSnackbar();
 
-  const { user } = useAuth();
+  let { user } = useAuth();
 
   const UpdateUserSchema = Yup.object().shape({
     email: Yup.string().required('Name is required'),
@@ -69,34 +69,18 @@ export default function AccountGeneral() {
 
     const id = JSON.parse(window.localStorage.getItem('user')).id
 
-   console.log(data)
     axios.put(`/auth/update-all/${id}`, data)
       .then((res) => {
+        user = JSON.parse(window.localStorage.getItem('user'))
+        updateUser()
         enqueueSnackbar('Data edit success!');
-        // const newAccessToken = res.data.jwt;
-        // window.localStorage.setItem('accessToken', newAccessToken)
-        // navigate(PATH_DASHBOARD.root, { replace: true });
       })
 
       .catch((error) => {
         enqueueSnackbar(error.error, { variant: 'error' });
-
-        // if (error.response.status === 401) {
-        //   enqueueSnackbar('Unauthorized!', { variant: 'error' });
-
-        //   window.localStorage.removeItem('accessToken').then((res) => {
-        //     // navigate(PATH_AUTH.login, { replace: true });
-        //   });
-        // }
-        // if (error.response.status === 400) {
-        //   enqueueSnackbar('Wrong Code!', { variant: 'error' });
-        // }
+        reset() 
       })
-      .finally(() => {
-        reset();
-      });
       
-
   };
 
   const uploadAvatar = async (file) => {
@@ -160,9 +144,9 @@ export default function AccountGeneral() {
         const newAccessToken = res.data.user.user_token;
         window.localStorage.setItem('accessToken', newAccessToken)
         // set user data
-        const user = res.data.user
-        user.id = id;
-        window.localStorage.setItem('user', JSON.stringify(user))
+        const newUser = res.data.user
+        newUser.id = id;
+        window.localStorage.setItem('user', JSON.stringify(newUser))
       })
       
 
@@ -172,7 +156,6 @@ export default function AccountGeneral() {
   };
     
 
-  updateUser()
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Grid container spacing={3}>
