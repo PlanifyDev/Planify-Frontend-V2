@@ -3,13 +3,14 @@ import { paramCase } from 'change-case';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+
 // @mui
 import { styled } from '@mui/material/styles';
 import { Link, Typography, Autocomplete, InputAdornment, Popper } from '@mui/material';
 // hooks
 import useIsMountedRef from '../../../../hooks/useIsMountedRef';
 // utils
-import axios from '../../../../utils/axios';
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
 // components
@@ -39,7 +40,7 @@ export default function ShopProductSearch() {
     try {
       setSearchQuery(value);
       if (value) {
-        const response = await axios.get('/api/products/search', {
+        const response = await axios.get('https://minimal-assets-api.vercel.app/api/products/search', {
           params: { query: value },
         });
 
