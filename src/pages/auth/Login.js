@@ -84,14 +84,15 @@ export default function Login() {
 
         {mdUp && (
           <SectionStyle>
-            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
+            <Typography variant="h3" sx={{ px: 5, mt: '33%', mb: '12%' }}>
               Hi, Welcome Back
             </Typography>
             <Image
               visibleByDefault
               disabledEffect
               alt="login"
-              src="https://images.edrawsoft.com/articles/floor-plan-maker/top-banner.svg"
+              src="https://expertphotography.b-cdn.net/wp-content/uploads/2021/02/architecture-photographers-2.jpg"
+              minWidth='140%'   
             />
           </SectionStyle>
         )}
