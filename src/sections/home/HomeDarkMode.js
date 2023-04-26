@@ -38,7 +38,7 @@ export default function HomeDarkMode() {
           visibleByDefault
           disabledEffect
           alt="image shape"
-          src="https://minimal-assets-api.vercel.app/assets/images/home/shape.svg"
+          // src="https://minimal-assets-api.vercel.app/assets/images/home/shape.svg"
           sx={{
             top: 0,
             right: 0,
