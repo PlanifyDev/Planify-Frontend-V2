@@ -130,30 +130,28 @@ function AuthProvider({ children }) {
   };
 
   const register = async (email, password, firstname, lastname) => {
-    console.log({
-      firstname,
-      lastname,
-      email,
-      password
-    });
-    const response = await axios.post('/auth/signup', {
+    axios.post('/auth/signup', {
       email,
       password,
       firstname,
       lastname,
+    }).then((response) => {
+      const { jwt, user } = response.data;
+      const accessToken = jwt;
+      setSession(accessToken);
+      dispatch({
+        type: 'REGISTER',
+        payload: {
+          user,
+        },
+      });
+      window.localStorage.setItem('user', JSON.stringify(user));    }).catch((error) => {
+      console.log(error);
+      
     });
-    const { jwt, user } = response.data;
-    const accessToken = jwt;
-    setSession(accessToken);
-    console.log(response);
-    window.localStorage.setItem('user', JSON.stringify(user));
 
-    dispatch({
-      type: 'REGISTER',
-      payload: {
-        user,
-      },
-    });
+
+
   };
 
   const logout = async () => {
