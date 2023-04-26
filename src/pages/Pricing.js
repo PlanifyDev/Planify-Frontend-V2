@@ -1,3 +1,4 @@
+import { useSnackbar } from 'notistack';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Grid, Switch, Container, Typography, Stack } from '@mui/material';
@@ -26,12 +27,13 @@ const RootStyle = styled('div')(({ theme }) => ({
 export default function Pricing() {
   const [plans, setPlans] = useState([]);
   const [monthly, setMonthly] = useState(true);
+  const enqueueSnackbar = useSnackbar();
 
   useEffect(() => {
     axios.get('/pay/plan/').then((response) => {
       setPlans(response.data.plans)
     }).catch((error) => {
-      console.log(error); 
+      enqueueSnackbar(error.error, { variant: 'error' });
       });
   }, []); 
 
