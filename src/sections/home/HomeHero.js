@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import { Button, Box, Link, Container, Typography, Stack } from '@mui/material';
 // routes
-import { PATH_DASHBOARD } from '../../routes/paths';
+import { PATH_DASHBOARD, STUDIO_ROOTS } from '../../routes/paths';
 // components
 import Image from '../../components/Image';
 import Iconify from '../../components/Iconify';
@@ -153,8 +153,7 @@ export default function HomeHero() {
               <Button
                 size="large"
                 variant="contained"
-                component={RouterLink}
-                to={PATH_DASHBOARD.root}
+                href={STUDIO_ROOTS}
                 // style={{width:80}}
                 startIcon={<Iconify icon={'eva:flash-fill'} width={15} height={20} />}
                 style={{ textAlign: 'center' }}

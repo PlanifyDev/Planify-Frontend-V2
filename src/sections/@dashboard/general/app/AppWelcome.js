@@ -4,6 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import { Typography, Button, Card, CardContent } from '@mui/material';
 import { SeoIllustration } from '../../../../assets';
+import { STUDIO_ROOTS } from '../../../../routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -45,7 +46,7 @@ export default function AppWelcome({ displayName }) {
         Start your design journey today and see your ideas come to life !
         </Typography>
 
-        <Button variant="contained" to="#" component={RouterLink}>
+        <Button variant="contained" href={STUDIO_ROOTS}>
           Planify Now
         </Button>
       </CardContent>

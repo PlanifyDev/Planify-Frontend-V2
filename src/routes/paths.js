@@ -6,7 +6,7 @@ function path(root, sublink) {
 
 const ROOTS_AUTH = '/auth';
 const ROOTS_DASHBOARD = '/dashboard';
-
+export const STUDIO_ROOTS = 'http://localhost:3000/';
 // ----------------------------------------------------------------------
 
 export const PATH_AUTH = {

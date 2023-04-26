@@ -6,8 +6,10 @@ import { Box, Button, Link, Typography } from '@mui/material';
 // hooks
 import useAuth from '../../../hooks/useAuth';
 // routes
-import { PATH_DASHBOARD } from '../../../routes/paths';
+import { PATH_DASHBOARD, STUDIO_ROOTS } from '../../../routes/paths';
+
 // components
+
 // import MyAvatar from '../../../components/MyAvatar';
 // import { handleBreakpoints } from '@mui/system';
 
@@ -35,7 +37,7 @@ export default function NavbarAccount({ isCollapse }) {
 
   return (
     // change route to design page {PATH_DASHBOARD.user.account}
-    <Link underline="none" color="inherit" component={RouterLink} to={PATH_DASHBOARD.user.account}>
+    <Link underline="none" color="inherit">
       <RootStyle
         sx={{
           ...(isCollapse && {
@@ -49,7 +51,7 @@ export default function NavbarAccount({ isCollapse }) {
           Planify Now
         </Button> */}
 
-        <Button  target="_blank" rel="noopener" variant="contained"
+        <Button  target="_blank" rel="noopener" variant="contained" href={STUDIO_ROOTS}
           style={{fontSize: !isCollapse &&'20px',  width: '100%'}}
         >
         Planify Now
