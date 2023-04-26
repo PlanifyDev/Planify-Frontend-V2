@@ -33,7 +33,8 @@ export default function Pricing() {
     axios.get('/pay/plan/').then((response) => {
       setPlans(response.data.plans)
     }).catch((error) => {
-      enqueueSnackbar(error.error, { variant: 'error' });
+      console.log(error);
+      enqueueSnackbar('Server error', { variant: 'error' });
       });
   }, []); 
 

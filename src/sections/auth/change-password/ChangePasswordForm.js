@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { Stack } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { useSnackbar } from 'notistack';
+import { useLocation } from 'react-router-dom';
 // hooks
 import useIsMountedRef from '../../../hooks/useIsMountedRef';
 // components
@@ -28,6 +29,11 @@ export default function ChangePasswordForm({ onSent, onGetPassword }) {
     confirmNewPassword: Yup.string().oneOf([Yup.ref('newPassword'), null], 'Passwords must match'),
   });
 
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const token = queryParams.get('token');
+
   const methods = useForm({
     resolver: yupResolver(ChangePasswordSchema),
     // defaultValues: { email: 'mo.aggour@gmail.com' },
@@ -43,7 +49,7 @@ export default function ChangePasswordForm({ onSent, onGetPassword }) {
       await new Promise((resolve) => setTimeout(resolve, 500));
       if (isMountedRef.current) {
         console.log(data);
-        axios.post('/auth/reset-password', { newpassword: data.newPassword })
+        axios.post(`/auth/reset-password?token=${token}`, { newpassword: data.newPassword })
           .then((response) => {
             onSent();
           }

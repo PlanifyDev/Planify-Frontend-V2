@@ -6,6 +6,7 @@ import { HOST_API } from '../config';
 
 const axiosInstance = axios.create({
   baseURL: "http://20.185.71.1/api/",
+  // timeout: 1000,
 });
 
 axiosInstance.interceptors.response.use(

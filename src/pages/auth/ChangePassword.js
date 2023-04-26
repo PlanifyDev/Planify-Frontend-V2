@@ -35,9 +35,6 @@ export default function ChangePassword() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
 
-  const token = queryParams.get('token');
-  console.log(token);
-
   return (
     <Page title="Change Password" sx={{ height: 1 }}>
       <RootStyle>
