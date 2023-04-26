@@ -37,7 +37,7 @@ export default function AccountGeneral() {
     firstname: user?.firstname || '',
     lastname: user?.lastname || '',
     email: user?.email || '',
-    image_url: user?.photoURL || 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSUe2eaB9QYVkoJORkwnG2yfpPRqpqvRyUkWXOfvLOirm1mudvx',
+    image_url: user?.image_url || 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSUe2eaB9QYVkoJORkwnG2yfpPRqpqvRyUkWXOfvLOirm1mudvx',
     phoneNumber: user?.phoneNumber || '',
     country: user?.country || '',
     // address: user?.address || '',

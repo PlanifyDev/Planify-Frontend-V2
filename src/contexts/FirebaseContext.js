@@ -110,7 +110,7 @@ function AuthProvider({ children }) {
         user: {
           id: state?.user?.uid,
           email: state?.user?.email,
-          photoURL: state?.user?.photoURL || profile?.photoURL,
+          photoURL: state?.user?.image_url || profile?.image_url,
           displayName: state?.user?.displayName || profile?.displayName,
           role: ADMIN_EMAILS.includes(state?.user?.email) ? 'admin' : 'user',
           phoneNumber: state?.user?.phoneNumber || profile?.phoneNumber || '',
