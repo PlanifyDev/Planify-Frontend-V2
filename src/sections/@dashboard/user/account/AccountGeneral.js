@@ -28,6 +28,7 @@ export default function AccountGeneral() {
   const { enqueueSnackbar } = useSnackbar();
 
   let { user } = useAuth();
+  let formData = null;
 
   const UpdateUserSchema = Yup.object().shape({
     email: Yup.string().required('Name is required'),
@@ -60,16 +61,15 @@ export default function AccountGeneral() {
     formState: { isSubmitting },
   } = methods;
 
-  const onSubmit = async (data) => {
-    const accessToken = window.localStorage.getItem('accessToken');
-    
-    axios.defaults.headers.common = {
-      'authorization': `${accessToken}`
-    };
+  const updateProfile = async (data) => {
+      const accessToken = window.localStorage.getItem('accessToken');
+      const id = JSON.parse(window.localStorage.getItem('user')).id
 
-    const id = JSON.parse(window.localStorage.getItem('user')).id
+      axios.defaults.headers.common = {
+        'authorization': `${accessToken}`
+      };
 
-    axios.put(`/auth/update-all/${id}`, data)
+      await axios.put(`/auth/update-all/${id}`, data)
       .then((res) => {
         user = JSON.parse(window.localStorage.getItem('user'))
         updateUser()
@@ -80,42 +80,40 @@ export default function AccountGeneral() {
         enqueueSnackbar(error.error, { variant: 'error' });
         reset() 
       })
+
+    }
+
+  const onSubmit = async (data) => {
+
+      data.image_url = null
+      if (formData){
+        data.image_url = await uploadAvatar()
+      }
+      updateProfile(data)
       
   };
 
-  const uploadAvatar = async (file) => {
-    const formData = new FormData();
-    formData.append('image', file);
-    try {
-      const response = await axiosn.post('https://api.imgbb.com/1/upload', formData, {
+  const uploadAvatar = async () => {
+      const res = await axiosn.post('https://api.imgbb.com/1/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
         params: {
           key: '8d493e029a3607ac3f4c520c14d9d2d1' 
         }
-      });
-  
-      const url = response.data.data.image.url
-      setValue(
-        'image_url',
-        url
-      );
-    
-    } catch (error) {
-      console.error("Failed to upload image to Imgur.", error);
-    }
+      })
+
+      return res.data.data.url
   }
     
 
   const handleDrop = useCallback(
     (acceptedFiles) => {
+
       const file = acceptedFiles[0];
-      uploadAvatar(file);
-      console.log(file);
-
       if (file) {
-
+        formData = new FormData();
+        formData.append('image', file);
 
         setValue(
           'image_url',
@@ -131,6 +129,7 @@ export default function AccountGeneral() {
   // update user data ans jwt token
   const updateUser = async (data) => {
     try {
+      
       const accessToken = window.localStorage.getItem('accessToken');
       const id = JSON.parse(window.localStorage.getItem('user')).id
 
@@ -138,9 +137,9 @@ export default function AccountGeneral() {
         'authorization': `${accessToken}`
       };
     
+
       axios.get(`/auth/get-user/${id}`, data)
       .then((res) => {
-        console.log(res);
         const newAccessToken = res.data.user.user_token;
         window.localStorage.setItem('accessToken', newAccessToken)
         // set user data
