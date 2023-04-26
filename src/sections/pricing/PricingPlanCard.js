@@ -4,7 +4,9 @@ import { styled } from '@mui/material/styles';
 import { Card, Button, Typography, Box, Stack } from '@mui/material';
 // components
 import Label from '../../components/Label';
-import Iconify from '../../components/Iconify';
+import Iconify from '../../components/Iconify'
+import  { PlanFreeIcon, PlanStarterIcon, PlanPremiumIcon } from '../../assets';
+
 
 // ----------------------------------------------------------------------
 
@@ -28,8 +30,23 @@ PricingPlanCard.propTypes = {
   card: PropTypes.object,
 };
 
-export default function PricingPlanCard({ card, index }) {
-  const { subscription, icon, price, caption, lists, labelAction } = card;
+export default function PricingPlanCard({ card, index, monthly }) {
+  const subscription = card.name;
+  let price = monthly ? card.monthly_price : card.yearly_price;
+  price = parseFloat(price) > 0 ? price : 'Free';
+  const currentPlanId = '03fdba11-50ca-44e1-8b16-949b9fcc7995';
+  const caption = card.description;
+  const lists = [
+      { text: 'AI Floor Plan Generation', isAvailable: true },
+      { text: '3D Model generation', isAvailable: card.design_3d },
+      { text: 'AutoCAD & Revit Integration', isAvailable: card.dwg_file },
+      { text: 'Designs Editing', isAvailable: card.edit_design },
+      { text: 'Multiple Plan Designs', isAvailable: card.name==='premium' },
+      { text: 'High-Speed GPUs', isAvailable: card.name==='premium' },
+  ]
+  const labelAction = card.plan_id === currentPlanId? 'current plan' : card.description;
+  const icon = card.name === 'basic' ? <PlanFreeIcon /> : <PlanPremiumIcon />;
+  
 
   return (
     <RootStyle>
@@ -71,7 +88,7 @@ export default function PricingPlanCard({ card, index }) {
               color: 'text.secondary',
             }}
           >
-            /mo
+            {monthly ? '/mo' : '/yr' }
           </Typography>
         ) : (
           ''
@@ -106,7 +123,7 @@ export default function PricingPlanCard({ card, index }) {
         ))}
       </Stack>
 
-      <Button fullWidth size="large" variant="contained" disabled={index === 0}>
+      <Button fullWidth size="large" variant="contained" disabled={card.plan_id===currentPlanId}>
         {labelAction}
       </Button>
     </RootStyle>

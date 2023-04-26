@@ -1,12 +1,16 @@
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Grid, Switch, Container, Typography, Stack } from '@mui/material';
+
+import { useState, useEffect } from 'react';
 // _mock_
 import { _pricingPlans } from '../_mock';
 // components
 import Page from '../components/Page';
 // sections
 import { PricingPlanCard } from '../sections/pricing';
+import axios from '../utils/axios';
+
 
 // ----------------------------------------------------------------------
 
@@ -16,9 +20,21 @@ const RootStyle = styled('div')(({ theme }) => ({
   paddingBottom: theme.spacing(10),
 }));
 
+
 // ----------------------------------------------------------------------
 
 export default function Pricing() {
+  const [plans, setPlans] = useState([]);
+  const [monthly, setMonthly] = useState(true);
+
+  useEffect(() => {
+    axios.get('/pay/plan/').then((response) => {
+      setPlans(response.data.plans)
+    }).catch((error) => {
+      console.log(error); 
+      });
+  }, []); 
+
   return (
     <Page title="Pricing">
       <RootStyle>
@@ -36,7 +52,11 @@ export default function Pricing() {
               <Typography variant="overline" sx={{ mr: 1.5 }}>
                 MONTHLY
               </Typography>
-              <Switch />
+              <Switch 
+                checked={!monthly}
+                onChange={(e) => setMonthly(!monthly)}
+
+              />
               <Typography variant="overline" sx={{ ml: 1.5 }}>
                 YEARLY (save 10%)
               </Typography>
@@ -46,10 +66,10 @@ export default function Pricing() {
             </Typography>
           </Box>
 
-          <Grid container spacing={3}>
-            {_pricingPlans.map((card, index) => (
-              <Grid item xs={12} md={4} key={card.subscription}>
-                <PricingPlanCard card={card} index={index} />
+          <Grid container spacing={0}>
+            {plans.map((card, index) => (
+              <Grid item xs={12} md={6} key={card.subscription}>
+                <PricingPlanCard card={card} index={index} monthly={monthly}/>
               </Grid>
             ))}
           </Grid>
