@@ -2,6 +2,7 @@
 
 // highlight
 import './utils/highlight';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // scroll bar
 import 'simplebar/src/simplebar.css';

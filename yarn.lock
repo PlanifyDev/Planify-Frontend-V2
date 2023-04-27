@@ -2581,10 +2581,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@popperjs/core@^2.11.2":
-  version "2.11.6"
-  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.6.tgz"
-  integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
+"@popperjs/core@^2.11.2", "@popperjs/core@^2.11.7":
+  version "2.11.7"
+  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.7.tgz"
+  integrity sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==
 
 "@probe.gl/env@^3.5.0", "@probe.gl/env@3.5.0":
   version "3.5.0"
@@ -4314,6 +4314,11 @@ bootstrap-icons@^1.10.3:
   version "1.10.3"
   resolved "https://registry.npmjs.org/bootstrap-icons/-/bootstrap-icons-1.10.3.tgz"
   integrity sha512-7Qvj0j0idEm/DdX9Q0CpxAnJYqBCFCiUI6qzSPYfERMcokVuV9Mdm/AJiVZI8+Gawe4h/l6zFcOzvV7oXCZArw==
+
+bootstrap@^5.3.0-alpha3:
+  version "5.3.0-alpha3"
+  resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-5.3.0-alpha3.tgz"
+  integrity sha512-FBhOWMxkCFr74hesJdchLXhqagPTXS+kRNU3gE0FR5Ki/AdPSz32Ik96Z28+yBluCnE/pc9st7l1yPwKgbtfSA==
 
 brace-expansion@^1.1.7:
   version "1.1.11"

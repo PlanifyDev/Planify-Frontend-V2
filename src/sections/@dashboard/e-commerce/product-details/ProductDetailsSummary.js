@@ -1,7 +1,7 @@
 // product details card
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from 'prop-types';
-import { sentenceCase } from 'change-case';
+// import { sentenceCase } from 'change-case';
 import { useNavigate } from 'react-router-dom';
 // form
 import { Controller, useForm } from 'react-hook-form';
@@ -11,12 +11,12 @@ import { Box, Link, Stack, Button, Rating, Divider, IconButton, Typography } fro
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
 // utils
-import { fShortenNumber, fCurrency } from '../../../../utils/formatNumber';
+// import { fShortenNumber, fCurrency } from '../../../../utils/formatNumber';
 // components
-import Label from '../../../../components/Label';
+// import Label from '../../../../components/Label';
 import Iconify from '../../../../components/Iconify';
 import SocialsButton from '../../../../components/SocialsButton';
-import { ColorSinglePicker } from '../../../../components/color-utils';
+// import { ColorSinglePicker } from '../../../../components/color-utils';
 import { FormProvider, RHFSelect } from '../../../../components/hook-form';
 
 // ----------------------------------------------------------------------
@@ -61,13 +61,13 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
     sizes,
     price,
     cover,
-    status,
+    // status,
     colors,
     available,
-    priceSale,
-    totalRating,
-    totalReview,
-    inventoryType,
+    // priceSale,
+    // totalRating,
+    // totalReview,
+    // inventoryType,
   } = product;
 
   const alreadyProduct = cart.map((item) => item.id).includes(id);
@@ -122,69 +122,11 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
   return (
     <RootStyle {...other}>
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-        {/* <Label
-          variant={theme.palette.mode === 'light' ? 'ghost' : 'filled'}
-          color={inventoryType === 'in_stock' ? 'success' : 'error'}
-          sx={{ textTransform: 'uppercase' }}
-        >
-          {sentenceCase(inventoryType || '')}
-        </Label> */}
 
-        {/* <Typography
-          variant="overline"
-          sx={{
-            mt: 2,
-            mb: 1,
-            display: 'block',
-            color: status === 'sale' ? 'error.main' : 'info.main',
-          }}
-        >
-          {status}
-        </Typography> */}
-
-        {/* <Typography variant="h5" paragraph>
-          {name}
-        </Typography> */}
-
-        {/* <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2 }}> */}
-          {/* <Rating value={totalRating} precision={0.1} readOnly /> */}
-          {/* <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            ({fShortenNumber(totalReview)}
-            reviews)
-          </Typography> */}
-        {/* </Stack> */}
-
-        {/* <Typography variant="h4" sx={{ mb: 3 }}>
-          <Box component="span" sx={{ color: 'text.disabled', textDecoration: 'line-through' }}>
-            {priceSale && fCurrency(priceSale)}
-          </Box>
-          &nbsp;{fCurrency(price)}
-        </Typography> */}
-
-        {/* <Divider sx={{ borderStyle: 'dashed' }} /> */}
-
-        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 3 }}>
+        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2.5 }}>
           {/* <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
             Color
           </Typography> */}
-
-          {/* <Controller
-            name="color"
-            control={control}
-            render={({ field }) => (
-              <ColorSinglePicker
-                colors={colors}
-                value={field.value}
-                onChange={field.onChange}
-                sx={{
-                  ...(colors.length > 4 && {
-                    maxWidth: 144,
-                    justifyContent: 'flex-end',
-                  }),
-                }}
-              />
-            )}
-          /> */}
         </Stack>
 
         <Stack direction="row" justifyContent="space-between" sx={{ mb: 5 }}>
@@ -214,32 +156,6 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
         </Stack>
 
 
-        {/* <Stack direction="row" justifyContent="space-between" sx={{ mb: 5 }}>
-          <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
-            Balacny
-          </Typography>
-
-          <RHFSelect
-            name="size"
-            size="small"
-            fullWidth={false}
-            FormHelperTextProps={{
-              sx: { textAlign: 'right', margin: 0, mt: 1 },
-            }}
-            helperText={
-              <div underline="always" color="text.secondary">
-                room number
-              </div>
-            }
-          >
-            {sizes.map((size) => (
-              <option key={size} value={size}>
-                {size}
-              </option>
-            ))}
-          </RHFSelect>
-        </Stack> */}
-
         <Stack direction="row" justifyContent="space-between" sx={{ mb: 3 }}>
           <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
             Bathrooms
@@ -259,24 +175,28 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
           </div>
         </Stack>
 
+
+        <Stack direction="row" justifyContent="space-between" sx={{ mt: 8, mb: 4 }}>
+          <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
+            Area
+          </Typography>
+
+          <div className='offset-md-7 '>
+            <fieldset disabled>
+
+              <div className="mb-3 , col-sm-19 ">
+                <input type="number" id="disabledTextInput" className="form-control text-center" placeholder="90" />
+              </div>
+            </fieldset>
+          </div>
+        </Stack>
+
         <Divider sx={{ borderStyle: 'dashed' }} />
 
         <Stack direction="row" spacing={2} sx={{ mt: 5 }}>
-          {/* <Button
-            fullWidth
-            disabled={isMaxQuantity}
-            size="large"
-            color="warning"
-            variant="contained"
-            startIcon={<Iconify icon={'ic:round-add-shopping-cart'} />}
-            onClick={handleAddCart}
-            sx={{ whiteSpace: 'nowrap' }}
-          >
-            Add to Cart
-          </Button> */}
 
           <Button fullWidth size="large" type="submit" variant="contained">
-            Generate 
+            Generate
           </Button>
         </Stack>
 
