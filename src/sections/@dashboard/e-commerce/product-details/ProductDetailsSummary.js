@@ -133,8 +133,16 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
           <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
             Rooms
           </Typography>
+          
+          <Incrementer0
+            name="quantity0"
+            quantity={values.quantity0}
+            // available={available}
+            onIncrementQuantity0={() => setValue('quantity0', values.quantity0 + 1)}
+            onDecrementQuantity0={() => setValue('quantity0', values.quantity0 - 1)}
+          />
 
-          <RHFSelect
+          {/* <RHFSelect
             name="size"
             size="small"
             fullWidth={false}
@@ -152,7 +160,8 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
                 {size}
               </option>
             ))}
-          </RHFSelect>
+          </RHFSelect> */}
+          
         </Stack>
 
 
@@ -181,13 +190,18 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
             Area
           </Typography>
 
-          <div className='offset-md-7 '>
-            <fieldset disabled>
+          <div className='mb-8 '>
+            {/* <fieldset disabled>
 
               <div className="mb-3 , col-sm-19 ">
                 <input type="number" id="disabledTextInput" className="form-control text-center bg-light" placeholder="90" />
               </div>
-            </fieldset>
+            </fieldset> */}
+            <Incrementer
+              name="quantity"
+              quantity={'90'} 
+              // available={available}
+            />
           </div>
         </Stack>
 
@@ -239,7 +253,37 @@ function Incrementer({ available, quantity, onIncrementQuantity, onDecrementQuan
         {quantity}
       </Typography>
 
-      <IconButton size="small" color="inherit" disabled={quantity >= available} onClick={onIncrementQuantity}>
+      <IconButton size="small" color="inherit" disabled={quantity >= 4} onClick={onIncrementQuantity}>
+        <Iconify icon={'eva:plus-fill'} width={14} height={14} />
+      </IconButton>
+    </Box>
+  );
+}
+
+
+function Incrementer0({ available, quantity0, onIncrementQuantity0, onDecrementQuantity0 }) {
+  return (
+    <Box
+      sx={{
+        py: 0.5,
+        px: 0.75,
+        border: 1,
+        lineHeight: 0,
+        borderRadius: 1,
+        display: 'flex',
+        alignItems: 'center',
+        borderColor: 'grey.50032',
+      }}
+    >
+      <IconButton size="small" color="inherit" disabled={quantity0 <= 1} onClick={onDecrementQuantity0}>
+        <Iconify icon={'eva:minus-fill'} width={14} height={14} />
+      </IconButton>
+
+      <Typography variant="body2" component="span" sx={{ width: 40, textAlign: 'center' }}>
+        {quantity0}
+      </Typography>
+
+      <IconButton size="small" color="inherit" disabled={quantity0 >= 4} onClick={onIncrementQuantity0}>
         <Iconify icon={'eva:plus-fill'} width={14} height={14} />
       </IconButton>
     </Box>
