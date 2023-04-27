@@ -185,7 +185,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
             <fieldset disabled>
 
               <div className="mb-3 , col-sm-19 ">
-                <input type="number" id="disabledTextInput" className="form-control text-center" placeholder="90" />
+                <input type="number" id="disabledTextInput" className="form-control text-center bg-light" placeholder="90" />
               </div>
             </fieldset>
           </div>
