@@ -25,6 +25,7 @@ import CheckoutProductList from './CheckoutProductList';
 
 export default function CheckoutCart() {
   const dispatch = useDispatch();
+  
 
   const { checkout } = useSelector((state) => state.product);
 

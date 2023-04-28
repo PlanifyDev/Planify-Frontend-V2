@@ -83,6 +83,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
     color: colors[0],
     size: sizes[4],
     quantity: available < 1 ? 0 : 1,
+    quant: available < 1 ? 0 : 1,
   };
 
   const methods = useForm({
@@ -92,6 +93,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
   const { watch, control, setValue, handleSubmit } = methods;
 
   const values = watch();
+  
 
   const onSubmit = async (data) => {
     try {
@@ -133,13 +135,13 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
           <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
             Rooms
           </Typography>
-          
+
           <Incrementer0
-            name="quantity0"
-            quantity={values.quantity0}
-            // available={available}
-            onIncrementQuantity0={() => setValue('quantity0', values.quantity0 + 1)}
-            onDecrementQuantity0={() => setValue('quantity0', values.quantity0 - 1)}
+            name="quant"
+            quant={values.quant}
+            availablee={available}
+            onIncrementQuantity={() => setValue('quant', values.quant + 1)}
+            onDecrementQuantity={() => setValue('quant', values.quant - 1)}
           />
 
           {/* <RHFSelect
@@ -161,7 +163,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
               </option>
             ))}
           </RHFSelect> */}
-          
+
         </Stack>
 
 
@@ -197,10 +199,10 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
                 <input type="number" id="disabledTextInput" className="form-control text-center bg-light" placeholder="90" />
               </div>
             </fieldset> */}
-            <Incrementer
-              name="quantity"
-              quantity={'90'} 
-              // available={available}
+            <Incrementer2
+              // name="quantity"
+              quantity={'90'}
+            // available={available}
             />
           </div>
         </Stack>
@@ -223,6 +225,46 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
 }
 
 // ----------------------------------------------------------------------
+
+Incrementer0.propTypes = {
+  available: PropTypes.number,
+  quant: PropTypes.number,
+  onIncrementQuantity: PropTypes.func,
+  onDecrementQuantity: PropTypes.func,
+};
+
+function Incrementer0({ available, quant, onIncrementQuantity, onDecrementQuantity }) {
+  return (
+    <Box
+      sx={{
+        py: 0.5,
+        px: 0.75,
+        border: 1,
+        lineHeight: 0,
+        borderRadius: 1,
+        display: 'flex',
+        alignItems: 'center',
+        borderColor: 'grey.50032',
+      }}
+    >
+      <IconButton size="small" color="inherit" disabled={quant <= 1} onClick={onDecrementQuantity}>
+        <Iconify icon={'eva:minus-fill'} width={14} height={14} />
+      </IconButton>
+
+      <Typography variant="body2" component="span" sx={{ width: 40, textAlign: 'center' }}>
+        {quant}
+      </Typography>
+
+      <IconButton size="small" color="inherit" disabled={quant >= 4} onClick={onIncrementQuantity}>
+        <Iconify icon={'eva:plus-fill'} width={14} height={14} />
+      </IconButton>
+    </Box>
+  );
+}
+
+
+
+
 
 Incrementer.propTypes = {
   available: PropTypes.number,
@@ -261,12 +303,72 @@ function Incrementer({ available, quantity, onIncrementQuantity, onDecrementQuan
 }
 
 
-function Incrementer0({ available, quantity0, onIncrementQuantity0, onDecrementQuantity0 }) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Incrementer0.propTypes = {
+//   available: PropTypes.number,
+//   quantity0: PropTypes.number,
+//   onIncrementQuantity0: PropTypes.func,
+//   onDecrementQuantity0: PropTypes.func,
+// };
+
+// function Incrementer0({ available, quantity0, onIncrementQuantity0, onDecrementQuantity0 }) {
+//   return (
+//     <Box
+//       sx={{
+//         py: 0.5,
+//         px: 0.75,
+//         border: 1,
+//         lineHeight: 0,
+//         borderRadius: 1,
+//         display: 'flex',
+//         alignItems: 'center',
+//         borderColor: 'grey.50032',
+//       }}
+//     >
+//       <IconButton size="small" color="inherit" disabled={quantity0 <= 1} onClick={onDecrementQuantity0}>
+//         <Iconify icon={'eva:minus-fill'} width={14} height={14} />
+//       </IconButton>
+
+//       <Typography variant="body2" component="span" sx={{ width: 40, textAlign: 'center' }}>
+//         {quantity0}
+//       </Typography>
+
+//       <IconButton size="small" color="inherit" disabled={quantity0 >= 4} onClick={onIncrementQuantity0}>
+//         <Iconify icon={'eva:plus-fill'} width={14} height={14} />
+//       </IconButton>
+//     </Box>
+//   );
+// }
+
+
+Incrementer2.propTypes = {
+  available: PropTypes.number,
+  quantity: PropTypes.number,
+  onIncrementQuantity: PropTypes.func,
+  onDecrementQuantity: PropTypes.func,
+};
+
+function Incrementer2({ available, quantity, onIncrementQuantity, onDecrementQuantity }) {
   return (
     <Box
       sx={{
         py: 0.5,
-        px: 0.75,
+        px: 3.7,
         border: 1,
         lineHeight: 0,
         borderRadius: 1,
@@ -275,17 +377,17 @@ function Incrementer0({ available, quantity0, onIncrementQuantity0, onDecrementQ
         borderColor: 'grey.50032',
       }}
     >
-      <IconButton size="small" color="inherit" disabled={quantity0 <= 1} onClick={onDecrementQuantity0}>
-        <Iconify icon={'eva:minus-fill'} width={14} height={14} />
-      </IconButton>
+      {/* <IconButton size="small" color="inherit" disabled={quantity <= 1} onClick={onDecrementQuantity}>
+        <Iconify icon={'  '} width={1} height={14} />
+      </IconButton> */}
 
       <Typography variant="body2" component="span" sx={{ width: 40, textAlign: 'center' }}>
-        {quantity0}
+        {quantity}
       </Typography>
 
-      <IconButton size="small" color="inherit" disabled={quantity0 >= 4} onClick={onIncrementQuantity0}>
-        <Iconify icon={'eva:plus-fill'} width={14} height={14} />
-      </IconButton>
+      {/* <IconButton size="small" color="inherit" disabled={quantity >= 4} onClick={onIncrementQuantity}>
+        <Iconify icon={'  '} width={14} height={14} />
+      </IconButton> */}
     </Box>
   );
 }
