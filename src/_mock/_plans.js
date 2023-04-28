@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { PlanFreeIcon, PlanStarterIcon, PlanPremiumIcon } from '../assets';
 
 // ----------------------------------------------------------------------
@@ -20,6 +21,7 @@ export const _homePlans = [...Array(3)].map((_, index) => ({
     'https://minimal-assets-api.vercel.app/assets/images/home/ic_ts.svg',
   ],
 }));
+
 
 export const _pricingPlans = [
   {
