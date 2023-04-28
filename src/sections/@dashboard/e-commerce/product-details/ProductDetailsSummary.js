@@ -368,7 +368,7 @@ function Incrementer2({ available, quantity, onIncrementQuantity, onDecrementQua
     <Box
       sx={{
         py: 0.5,
-        px: 3.7,
+        px: 3.8,
         border: 1,
         lineHeight: 0,
         borderRadius: 1,

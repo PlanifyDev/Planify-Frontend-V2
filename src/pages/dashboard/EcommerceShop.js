@@ -105,7 +105,7 @@ export default function EcommerceShop() {
   };
 
   return (
-    <Page title="Ecommerce: Shop">
+    <Page title="my work: projects">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="My Work"
@@ -124,15 +124,6 @@ export default function EcommerceShop() {
           <ShopProductSearch />
 
           <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
-            <FormProvider methods={methods}>
-              {/* <ShopFilterSidebar
-                onResetAll={handleResetFilter}
-                isOpen={openFilter}
-                onOpen={handleOpenFilter}
-                onClose={handleCloseFilter}
-              /> */}
-            </FormProvider>
-
             <ShopProductSort />
           </Stack>
         </Stack>
@@ -160,7 +151,7 @@ export default function EcommerceShop() {
         </Stack>
 
         <ShopProductList products={filteredProducts} loading={!products.length && isDefault} />
-        <CartWidget />
+        {/* <CartWidget /> */}
       </Container>
     </Page>
   );

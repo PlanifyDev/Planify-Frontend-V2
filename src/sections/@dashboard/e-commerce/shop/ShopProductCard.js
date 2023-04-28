@@ -19,51 +19,51 @@ ShopProductCard.propTypes = {
 };
 
 export default function ShopProductCard({ product }) {
-  const { name, cover,  status} = product;
+  const { name, cover, status } = product;
 
   const linkTo = PATH_DASHBOARD.eCommerce.view(paramCase(name));
 
   return (
     <Card>
-      <Box sx={{ position: 'relative' }}>
+
+      {/* <Box sx={{ position: 'relative' }}>
         {status && (
           <Label
             variant="filled"
-            // color={(status === 'sale' && 'error') || 'info'}
+            color={(status === 'sale' && 'error') || 'info'}
             sx={{
               top: 16,
-              // right: 16,
-              // zIndex: 9,
+              right: 16,
+              zIndex: 9,
               position: 'absolute',
               textTransform: 'uppercase',
             }}
           >
-            {/* {status} */}
+            {status}
           </Label>
         )}
         <Image alt={name} src={cover} ratio="1/1" />
-      </Box>
+      </Box> */}
+
+      <Link to={linkTo} color="inherit" component={RouterLink}>
+
+        <Image alt={name} src={cover} ratio="1/1" />
+
+      </Link>
+
+
+
 
       <Stack spacing={2} sx={{ p: 3 }}>
         <Link to={linkTo} color="inherit" component={RouterLink}>
+
           <Typography variant="subtitle2" noWrap>
             {name}
           </Typography>
+
         </Link>
 
-        <Stack direction="row" alignItems="center" justifyContent="space-between">
-          {/* <ColorPreview colors={colors} /> */}
 
-          <Stack direction="row" spacing={0.5}>
-            {/* {priceSale && (
-              <Typography component="span" sx={{ color: 'text.disabled', textDecoration: 'line-through' }}>
-                {fCurrency(priceSale)}
-              </Typography>
-            )} */}
-
-            {/* <Typography variant="subtitle1">{fCurrency(price)}</Typography> */}
-          </Stack>
-        </Stack>
       </Stack>
     </Card>
   );
