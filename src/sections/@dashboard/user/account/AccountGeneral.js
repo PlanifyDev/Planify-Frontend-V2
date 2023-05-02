@@ -197,7 +197,8 @@ export default function AccountGeneral() {
             >
               <RHFTextField name="firstname" label="First Name" />
               <RHFTextField name="lastname" label="Last Name" />
-              <RHFTextField name="email" label="Email Address" />
+              <RHFTextField name="email" label="Email Address"  disabled />
+              <RHFTextField name="role" label="Role" />
 
               <RHFSelect name="country" label="Country" placeholder="Country">
                 <option value="" />
