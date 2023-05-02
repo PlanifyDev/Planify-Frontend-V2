@@ -1,5 +1,6 @@
 import { createContext, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
+import {useHistory} from 'react-router-dom';
 import { Auth0Client } from '@auth0/auth0-spa-js';
 // routes
 import { PATH_AUTH } from '../routes/paths';

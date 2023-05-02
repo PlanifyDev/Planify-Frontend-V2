@@ -124,12 +124,41 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
   return (
     <RootStyle {...other}>
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+         <form style={{border:'solid  #d9d9d9 0.1rem', padding:'0.5rem',borderRadius:'1rem', width:'21.6rem', marginLeft:'-0.6rem',background:' #f2f2f2'}}>
+        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 3 }}>
+        
+        <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
+            Rooms
+          </Typography>
 
-        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2.5 }}>
-          {/* <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
-            Color
-          </Typography> */}
+          <div className='mb-8 '>
+            
+            <Incrementer2
+              quantity={'90'}
+            />
+          </div>
         </Stack>
+
+        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 3 }}>
+        
+        <Typography variant="subtitle1" sx={{ mt: 0.5,paddingTop:'0.5rem' }}>
+            Bathrooms
+          </Typography>
+
+          <div className='mb-8 '>
+            
+            <Incrementer2
+              quantity={'90'}
+            />
+          </div>
+        </Stack>
+        </form>
+        <Divider sx={{ borderStyle: 'dashed' ,padding:'0.9rem'}} />
+
+
+
+        {/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+        
 
         <Stack direction="row" justifyContent="space-between" sx={{ mb: 5 }}>
           <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
@@ -187,7 +216,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
         </Stack>
 
 
-        <Stack direction="row" justifyContent="space-between" sx={{ mt: 8, mb: 4 }}>
+        <Stack direction="row" justifyContent="space-between" sx={{ mt: 5, mb: 4 }}>
           <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
             Area
           </Typography>
@@ -208,13 +237,14 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
         </Stack>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
-
+        
         <Stack direction="row" spacing={2} sx={{ mt: 5 }}>
 
           <Button fullWidth size="large" type="submit" variant="contained">
             Generate
           </Button>
         </Stack>
+        
 
         <Stack alignItems="center" sx={{ mt: 3 }}>
           <SocialsButton initialColor />
