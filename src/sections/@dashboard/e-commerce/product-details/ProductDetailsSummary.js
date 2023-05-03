@@ -1,6 +1,7 @@
 // product details card
 import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 // import { sentenceCase } from 'change-case';
 import { useNavigate } from 'react-router-dom';
 // form
@@ -55,6 +56,29 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
 
   const navigate = useNavigate();
 
+  const [disabled, setDisabled] = useState(true);
+
+  const handleEditClick = () => {
+    setDisabled(false);
+  };
+
+  const handleBlur = () => {
+    setDisabled(true);
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleEditClick();
+    }
+  };
+
+
+  // const editIcon = document.querySelector('.edit-icon');
+  // const inputField = document.querySelector('.editable-field input');
+
+  // editIcon.addEventListener('click', () => {
+  //   inputField.removeAttribute('disabled');
+  //   inputField.focus(); // set focus on the input field to make it easy for the user to start typing
+  // });
   const {
     id,
     name,
@@ -93,7 +117,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
   const { watch, control, setValue, handleSubmit } = methods;
 
   const values = watch();
-  
+
 
   const onSubmit = async (data) => {
     try {
@@ -123,132 +147,138 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
 
   return (
     <RootStyle {...other}>
-      <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-         <form style={{border:'solid  #d9d9d9 0.1rem', padding:'0.5rem',borderRadius:'1rem', width:'21.6rem', marginLeft:'-0.6rem',background:' #f2f2f2'}}>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 3 }}>
-        
-        <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
-            Rooms
-          </Typography>
-
-          <div className='mb-8 '>
-            
-            <Incrementer2
-              quantity={'90'}
+      <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}  >
+        <form style={{ border: 'solid  #d9d9d9 0.1rem', padding: '1.5rem', borderRadius: '1rem', marginLeft: '-0.6rem' }}>
+          {/* background: ' #f2f2f2' */}
+          {/* ////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\ */}
+          <div style={{ position: 'relative' }}>
+            <input type="text"
+              style={{ border: 'none', outline: 'none', width: '100%', height: '2.5rem', borderRadius: '0.5rem', paddingLeft: '0.5rem' }}
+              defaultValue=" Version name"
+              // disabled style={{ paddingRight: '30px' }}
+              disabled={disabled}
+              onBlur={handleBlur}
             />
+            <span
+              onClick={handleEditClick}
+              onKeyDown={handleKeyDown}
+              role="button"
+              tabIndex="0"
+              style={{ position: 'absolute', top: '50%', right: '5px', transform: 'translateY(-50%)', cursor: 'pointer' }}>
+              &#9998;
+            </span>
           </div>
-        </Stack>
+          {/* //////////////////////////////////////////////////////// */}
+          <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 3 }}>
 
-        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 3 }}>
-        
-        <Typography variant="subtitle1" sx={{ mt: 0.5,paddingTop:'0.5rem' }}>
-            Bathrooms
-          </Typography>
+            <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
+              Rooms
+            </Typography>
 
-          <div className='mb-8 '>
-            
-            <Incrementer2
-              quantity={'90'}
-            />
-          </div>
-        </Stack>
+            <div className='mb-8 '>
+
+              <Incrementer2
+                quantity={'90'}
+              />
+            </div>
+          </Stack>
+
+          <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 3 }}>
+
+            <Typography variant="subtitle1" sx={{ mt: 0.5, paddingTop: '0.5rem' }}>
+              Bathrooms
+            </Typography>
+
+            <div className='mb-8 '>
+
+              <Incrementer2
+                quantity={'90'}
+              />
+            </div>
+          </Stack>
         </form>
-        <Divider sx={{ borderStyle: 'dashed' ,padding:'0.9rem'}} />
+        <Divider sx={{ borderStyle: 'dashed', padding: '0.7rem' }} />
 
 
 
         {/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
-        
 
-        <Stack direction="row" justifyContent="space-between" sx={{ mb: 5 }}>
-          <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
-            Rooms
+        <form style={{ border: 'solid  #d9d9d9 0.1rem', padding: '1.5rem', borderRadius: '1rem', marginLeft: '-0.6rem' }}>
+          <Typography style={{textAlign:'center',fontWeight:'bold', fontSize:'1.3rem'}} variant="subtitle1" sx={{ mt: 0 }}>
+            Create new version
           </Typography>
+          <Divider sx={{ borderStyle: 'dashed', padding: '0.6rem' }} />
 
-          <Incrementer0
-            name="quant"
-            quant={values.quant}
-            availablee={available}
-            onIncrementQuantity={() => setValue('quant', values.quant + 1)}
-            onDecrementQuantity={() => setValue('quant', values.quant - 1)}
-          />
+          <Stack direction="row" justifyContent="space-between" sx={{ mb: 5 }}>
+            <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
+              Rooms
+            </Typography>
 
-          {/* <RHFSelect
-            name="size"
-            size="small"
-            fullWidth={false}
-            FormHelperTextProps={{
-              sx: { textAlign: 'right', margin: 0, mt: 1 },
-            }}
-            helperText={
-              <Link underline="always" color="text.secondary">
-                room number
-              </Link>
-            }
-          >
-            {sizes.map((size) => (
-              <option key={size} value={size}>
-                {size}
-              </option>
-            ))}
-          </RHFSelect> */}
-
-        </Stack>
-
-
-        <Stack direction="row" justifyContent="space-between" sx={{ mb: 3 }}>
-          <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
-            Bathrooms
-          </Typography>
-
-          <div>
-            <Incrementer
-              name="quantity"
-              quantity={values.quantity}
-              available={available}
-              onIncrementQuantity={() => setValue('quantity', values.quantity + 1)}
-              onDecrementQuantity={() => setValue('quantity', values.quantity - 1)}
+            <Incrementer0
+              name="quant"
+              quant={values.quant}
+              availablee={available}
+              onIncrementQuantity={() => setValue('quant', values.quant + 1)}
+              onDecrementQuantity={() => setValue('quant', values.quant - 1)}
             />
-            {/* <Typography variant="caption" component="div" sx={{ mt: 1, textAlign: 'right', color: 'text.secondary' }}>
+
+          </Stack>
+
+
+          <Stack direction="row" justifyContent="space-between" sx={{ mb: 3 }}>
+            <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
+              Bathrooms
+            </Typography>
+
+            <div>
+              <Incrementer
+                name="quantity"
+                quantity={values.quantity}
+                available={available}
+                onIncrementQuantity={() => setValue('quantity', values.quantity + 1)}
+                onDecrementQuantity={() => setValue('quantity', values.quantity - 1)}
+              />
+              {/* <Typography variant="caption" component="div" sx={{ mt: 1, textAlign: 'right', color: 'text.secondary' }}>
               Available: {available}
             </Typography> */}
-          </div>
-        </Stack>
+            </div>
+          </Stack>
 
 
-        <Stack direction="row" justifyContent="space-between" sx={{ mt: 5, mb: 4 }}>
-          <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
-            Area
-          </Typography>
+          <Stack direction="row" justifyContent="space-between" sx={{ mt: 5, mb: 4 }}>
+            <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
+              Area
+            </Typography>
 
-          <div className='mb-8 '>
-            {/* <fieldset disabled>
+            <div className='mb-8 '>
+              {/* <fieldset disabled>
 
               <div className="mb-3 , col-sm-19 ">
                 <input type="number" id="disabledTextInput" className="form-control text-center bg-light" placeholder="90" />
               </div>
             </fieldset> */}
-            <Incrementer2
-              // name="quantity"
-              quantity={'90'}
-            // available={available}
-            />
-          </div>
-        </Stack>
+              <Incrementer2
+                // name="quantity"
+                quantity={'90'}
+              // available={available}
+              />
+            </div>
+          </Stack>
 
-        <Divider sx={{ borderStyle: 'dashed' }} />
-        
-        <Stack direction="row" spacing={2} sx={{ mt: 5 }}>
+          <Divider sx={{ borderStyle: 'dashed' }} />
 
-          <Button fullWidth size="large" type="submit" variant="contained">
-            Generate
-          </Button>
-        </Stack>
-        
+          <Stack direction="row" spacing={2} sx={{ mt: 1 }}>
 
-        <Stack alignItems="center" sx={{ mt: 3 }}>
-          <SocialsButton initialColor />
-        </Stack>
+            <Button fullWidth size="large" type="submit" variant="contained">
+              Generate
+            </Button>
+          </Stack>
+
+
+          {/* <Stack alignItems="center" sx={{ mt: 3 }}>
+            <SocialsButton initialColor />
+          </Stack> */}
+        </form>
       </FormProvider>
     </RootStyle>
   );
