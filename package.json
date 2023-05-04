@@ -4,7 +4,6 @@
   "version": "3.3.0",
   "description": "Javascript Version",
   "private": true,
-  "homepage": "https://planifydev.github.io/Planify-Frontend-V2/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
