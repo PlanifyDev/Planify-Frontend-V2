@@ -19,41 +19,17 @@ ShopProductCard.propTypes = {
 };
 
 export default function ShopProductCard({ product }) {
-  const { name, cover, status } = product;
+  const { name, cover, status,id,RoomsVersion,BathVersion } = product;
 
-  const linkTo = PATH_DASHBOARD.eCommerce.view(paramCase(name));
+  const linkTo = PATH_DASHBOARD.eCommerce.view(paramCase(name), product.id);
 
   return (
     <Card>
-
-      {/* <Box sx={{ position: 'relative' }}>
-        {status && (
-          <Label
-            variant="filled"
-            color={(status === 'sale' && 'error') || 'info'}
-            sx={{
-              top: 16,
-              right: 16,
-              zIndex: 9,
-              position: 'absolute',
-              textTransform: 'uppercase',
-            }}
-          >
-            {status}
-          </Label>
-        )}
-        <Image alt={name} src={cover} ratio="1/1" />
-      </Box> */}
-
       <Link to={linkTo} color="inherit" component={RouterLink}>
 
         <Image alt={name} src={cover} ratio="1/1" />
 
       </Link>
-
-
-
-
       <Stack spacing={2} sx={{ p: 3 }}>
         <Link to={linkTo} color="inherit" component={RouterLink}>
 

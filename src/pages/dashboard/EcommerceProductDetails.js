@@ -88,16 +88,10 @@ export default function EcommerceProductDetails() {
         <HeaderBreadcrumbs
           heading="Project Details"
           links={[
-            // { name: 'Dashboard', href: PATH_DASHBOARD.root },
-            // {
-            //   name: 'my work',
-            //   href: PATH_DASHBOARD.eCommerce.root,
-            // },
+           
             {
-              // name: 'Shop',
               href: PATH_DASHBOARD.eCommerce.shop,
             },
-            // { name: sentenceCase(name) },
           ]}
         />
 

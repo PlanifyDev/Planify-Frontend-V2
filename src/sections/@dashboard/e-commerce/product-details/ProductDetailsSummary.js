@@ -71,27 +71,22 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
     }
   };
 
-
-  // const editIcon = document.querySelector('.edit-icon');
-  // const inputField = document.querySelector('.editable-field input');
-
-  // editIcon.addEventListener('click', () => {
-  //   inputField.removeAttribute('disabled');
-  //   inputField.focus(); // set focus on the input field to make it easy for the user to start typing
-  // });
   const {
     id,
     name,
-    sizes,
-    price,
+    // sizes,
+    // price,
     cover,
     // status,
-    colors,
+    // colors,
     available,
     // priceSale,
     // totalRating,
     // totalReview,
     // inventoryType,
+    RoomsVersion=3,
+    BathroomVersion=2,
+
   } = product;
 
   const alreadyProduct = cart.map((item) => item.id).includes(id);
@@ -103,11 +98,14 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
     name,
     cover,
     available,
-    price,
-    color: colors[0],
-    size: sizes[4],
+    // price,
+    // color: colors[0],
+    // size: sizes[4],
     quantity: available < 1 ? 0 : 1,
     quant: available < 1 ? 0 : 1,
+    // RoomsVersion,
+    // BathroomVersion,
+
   };
 
   const methods = useForm({
@@ -178,7 +176,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
             <div className='mb-8 '>
 
               <Incrementer2
-                quantity={'90'}
+                quantity={RoomsVersion}
               />
             </div>
           </Stack>
@@ -192,12 +190,12 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
             <div className='mb-8 '>
 
               <Incrementer2
-                quantity={'90'}
+                quantity={BathroomVersion}
               />
             </div>
           </Stack>
         </form>
-        <Divider sx={{ borderStyle: 'dashed', padding: '0.7rem' }} />
+        <Divider sx={{ borderStyle: 'dashed', padding: '0.6rem' }} />
 
 
 
