@@ -83,15 +83,21 @@ export default function EcommerceProductDetails() {
   };
 
   return (
-    <Page title="projects: project Details">
+    <Page title="projects: project Details" style={{marginTop:'-2rem'}}>
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="Project Details"
           links={[
-           
+            // { name: 'Dashboard', href: PATH_DASHBOARD.root },
+            // {
+            //   name: 'my work',
+            //   href: PATH_DASHBOARD.eCommerce.root,
+            // },
             {
+              // name: 'project name',
               href: PATH_DASHBOARD.eCommerce.shop,
             },
+            // { name: sentenceCase(name) },
           ]}
         />
 
@@ -99,12 +105,12 @@ export default function EcommerceProductDetails() {
 
         {product && (
           <>
-            <Card>
+            <Card style={{scale:'80%',marginTop:'-7rem'}}>
               <Grid container>
                 <Grid item xs={12} md={6} lg={7}>
                   <ProductDetailsCarousel product={product} />
                 </Grid>
-                <Grid item xs={12} md={6} lg={5}>
+                <Grid item xs={12} md={6} lg={5} mt={-3.9}>
                   <ProductDetailsSummary
                     product={product}
                     cart={checkout.cart}
@@ -115,54 +121,13 @@ export default function EcommerceProductDetails() {
               </Grid>
             </Card>
 
-            <Grid container sx={{ my: 8 }}>
-              {PRODUCT_DESCRIPTION.map((item) => (
-                <Grid item xs={12} md={4} key={item.title}>
-                  <Box sx={{ my: 2, mx: 'auto', maxWidth: 280, textAlign: 'center' }}>
-                    <IconWrapperStyle>
-                      <Iconify icon={item.icon} width={36} height={36} />
-                    </IconWrapperStyle>
-                    <Typography variant="subtitle1" gutterBottom>
-                      {item.title}
-                    </Typography>
-                    <Typography sx={{ color: 'text.secondary' }}>{item.description}</Typography>
-                  </Box>
-                </Grid>
-              ))}
-            </Grid>
-
-            {/* <Card>
-              <TabContext value={value}>
-                <Box sx={{ px: 3, bgcolor: 'background.neutral' }}>
-                  <TabList onChange={(e, value) => setValue(value)}>
-                    <Tab disableRipple value="1" label="Description" />
-                    <Tab
-                      disableRipple
-                      value="2"
-                      label={`Review (${product.reviews.length})`}
-                      sx={{ '& .MuiTab-wrapper': { whiteSpace: 'nowrap' } }}
-                    />
-                  </TabList>
-                </Box>
-
-                <Divider />
-
-                <TabPanel value="1">
-                  <Box sx={{ p: 3 }}>
-                    <Markdown children={product.description} />
-                  </Box>
-                </TabPanel>
-                <TabPanel value="2">
-                  <ProductDetailsReview product={product} />
-                </TabPanel>
-              </TabContext>
-            </Card> */}
+            
           </>
         )}
 
-        {!product && <SkeletonProduct />}
+        {/* {!product && <SkeletonProduct />} */}
 
-        {error && <Typography variant="h6">404 Product not found</Typography>}
+        {/* {error && <Typography variant="h6">404 Product not found</Typography>} */}
       </Container>
     </Page>
   );

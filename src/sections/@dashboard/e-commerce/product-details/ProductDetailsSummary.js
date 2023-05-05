@@ -84,8 +84,8 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
     // totalRating,
     // totalReview,
     // inventoryType,
-    RoomsVersion=3,
-    BathroomVersion=2,
+    RoomsVersion = 3,
+    BathroomVersion = 2,
 
   } = product;
 
@@ -146,12 +146,25 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
   return (
     <RootStyle {...other}>
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}  >
-        <form style={{ border: 'solid  #d9d9d9 0.1rem', padding: '1.5rem', borderRadius: '1rem', marginLeft: '-0.6rem' }}>
+        <form
+          style={{
+            border: 'solid #d9d9d9 0.1rem',
+            padding: '1.5rem',
+            borderRadius: '1rem',
+            marginLeft: '-0.6rem',
+          }}>
           {/* background: ' #f2f2f2' */}
           {/* ////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\ */}
           <div style={{ position: 'relative' }}>
             <input type="text"
-              style={{ border: 'none', outline: 'none', width: '100%', height: '2.5rem', borderRadius: '0.5rem', paddingLeft: '0.5rem' }}
+              style={{
+                border: 'none',
+                outline: 'none',
+                width: '100%',
+                height: '2.5rem',
+                borderRadius: '0.5rem',
+                paddingLeft: '0.5rem'
+              }}
               defaultValue=" Version name"
               // disabled style={{ paddingRight: '30px' }}
               disabled={disabled}
@@ -167,6 +180,26 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
             </span>
           </div>
           {/* //////////////////////////////////////////////////////// */}
+          <Stack direction="row" justifyContent="space-between" sx={{ mt: 4.5, mb: 4 }}>
+            <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
+              Area
+            </Typography>
+
+            <div className='mb-8 '>
+              {/* <fieldset disabled>
+
+              <div className="mb-3 , col-sm-19 ">
+                <input type="number" id="disabledTextInput" className="form-control text-center bg-light" placeholder="90" />
+              </div>
+            </fieldset> */}
+              <Incrementer2
+                // name="quantity"
+                quantity={'90'}
+              // available={available}
+              />
+            </div>
+          </Stack>
+
           <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 3 }}>
 
             <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
@@ -194,21 +227,43 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
               />
             </div>
           </Stack>
+          <Divider sx={{ borderStyle: 'dashed' }} />
+
+          <Stack direction="row" spacing={2} sx={{ mt: 1 }}>
+            <Button
+
+              fullWidth
+              disabled={isMaxQuantity}
+              size="large"
+              variant="contained"
+              Icon={<i className="bi bi-trash3" />}
+              onClick={handleAddCart}
+              sx={{ whiteSpace: 'nowrap' }}
+            >
+              Generate
+            </Button>
+
+            <Button fullWidth size="large" style={{ backgroundColor: '#e60000' }} type="submit" variant="contained">
+              Delete
+            </Button>
+          </Stack>
+
         </form>
-        <Divider sx={{ borderStyle: 'dashed', padding: '0.6rem' }} />
+        <Divider sx={{ borderStyle: 'dashed', padding: '0.4rem' }} />
 
 
 
         {/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
         <form style={{ border: 'solid  #d9d9d9 0.1rem', padding: '1.5rem', borderRadius: '1rem', marginLeft: '-0.6rem' }}>
-          <Typography style={{textAlign:'center',fontWeight:'bold', fontSize:'1.3rem'}} variant="subtitle1" sx={{ mt: 0 }}>
+          <Typography style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.3rem' }} variant="subtitle1" sx={{ mt: 0 }}>
             Create new version
           </Typography>
           <Divider sx={{ borderStyle: 'dashed', padding: '0.6rem' }} />
 
-          <Stack direction="row" justifyContent="space-between" sx={{ mb: 5 }}>
-            <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
+
+          <Stack direction="row" justifyContent="space-between" sx={{ mb: 3.6 }}>
+            <Typography variant="subtitle1" sx={{ mt: 0.4 }}>
               Rooms
             </Typography>
 
@@ -224,7 +279,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
 
 
           <Stack direction="row" justifyContent="space-between" sx={{ mb: 3 }}>
-            <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
+            <Typography variant="subtitle1" sx={{ mt: 0.8 }}>
               Bathrooms
             </Typography>
 
@@ -236,36 +291,16 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
                 onIncrementQuantity={() => setValue('quantity', values.quantity + 1)}
                 onDecrementQuantity={() => setValue('quantity', values.quantity - 1)}
               />
-              {/* <Typography variant="caption" component="div" sx={{ mt: 1, textAlign: 'right', color: 'text.secondary' }}>
-              Available: {available}
-            </Typography> */}
+
             </div>
           </Stack>
 
 
-          <Stack direction="row" justifyContent="space-between" sx={{ mt: 5, mb: 4 }}>
-            <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
-              Area
-            </Typography>
 
-            <div className='mb-8 '>
-              {/* <fieldset disabled>
-
-              <div className="mb-3 , col-sm-19 ">
-                <input type="number" id="disabledTextInput" className="form-control text-center bg-light" placeholder="90" />
-              </div>
-            </fieldset> */}
-              <Incrementer2
-                // name="quantity"
-                quantity={'90'}
-              // available={available}
-              />
-            </div>
-          </Stack>
 
           <Divider sx={{ borderStyle: 'dashed' }} />
 
-          <Stack direction="row" spacing={2} sx={{ mt: 1 }}>
+          <Stack direction="row" spacing={2} sx={{ mt: 1.1 }}>
 
             <Button fullWidth size="large" type="submit" variant="contained">
               Generate
@@ -278,7 +313,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
           </Stack> */}
         </form>
       </FormProvider>
-    </RootStyle>
+    </RootStyle >
   );
 }
 
@@ -359,59 +394,6 @@ function Incrementer({ available, quantity, onIncrementQuantity, onDecrementQuan
     </Box>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Incrementer0.propTypes = {
-//   available: PropTypes.number,
-//   quantity0: PropTypes.number,
-//   onIncrementQuantity0: PropTypes.func,
-//   onDecrementQuantity0: PropTypes.func,
-// };
-
-// function Incrementer0({ available, quantity0, onIncrementQuantity0, onDecrementQuantity0 }) {
-//   return (
-//     <Box
-//       sx={{
-//         py: 0.5,
-//         px: 0.75,
-//         border: 1,
-//         lineHeight: 0,
-//         borderRadius: 1,
-//         display: 'flex',
-//         alignItems: 'center',
-//         borderColor: 'grey.50032',
-//       }}
-//     >
-//       <IconButton size="small" color="inherit" disabled={quantity0 <= 1} onClick={onDecrementQuantity0}>
-//         <Iconify icon={'eva:minus-fill'} width={14} height={14} />
-//       </IconButton>
-
-//       <Typography variant="body2" component="span" sx={{ width: 40, textAlign: 'center' }}>
-//         {quantity0}
-//       </Typography>
-
-//       <IconButton size="small" color="inherit" disabled={quantity0 >= 4} onClick={onIncrementQuantity0}>
-//         <Iconify icon={'eva:plus-fill'} width={14} height={14} />
-//       </IconButton>
-//     </Box>
-//   );
-// }
 
 
 Incrementer2.propTypes = {
