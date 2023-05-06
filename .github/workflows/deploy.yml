@@ -1,0 +1,34 @@
+name: front-end-deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Connect to server via SSH
+        env:
+          MACHINE_HOST: ${{ secrets.MACHINE_HOST }}
+          MACHINE_USERNAME: ${{ secrets.MACHINE_USERNAME }}
+          MACHINE_KEY: ${{ secrets.MACHINE_KEY }}
+
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.MACHINE_HOST }}
+          username: ${{ env.MACHINE_USERNAME }}
+          key: ${{ env.MACHINE_KEY }}
+          port: 22
+          script: |
+            rm -rf Planify-Frontend-V2
+            git clone git@github.com:PlanifyDev/Planify-Frontend-V2.git
+            cd Planify-Frontend-V2
+            npm install
+            npm run build
+            mv build ../server
+            cd ../server
+            sudo pm2 stop all
+            sudo pm2 start server.js
