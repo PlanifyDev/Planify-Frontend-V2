@@ -83,7 +83,7 @@ GroupAvatar.propTypes = {
 };
 
 function GroupAvatar({ participants }) {
-  return (
+  return ( 
     <div>
       <AvatarGroup
         max={3}

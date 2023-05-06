@@ -64,7 +64,8 @@ export default function AccountPopover() {
 
   return (
     <>
-      <IconButtonAnimate
+      <IconButtonAnimate    width={'560px'}
+
         onClick={handleOpen}
         sx={{
           p: 0,
@@ -81,7 +82,7 @@ export default function AccountPopover() {
           }),
         }}
       >
-        <MyAvatar />
+        <MyAvatar  />
       </IconButtonAnimate>
 
       <MenuPopover

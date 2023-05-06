@@ -8,7 +8,7 @@ import BadgeStatus from '../../../components/BadgeStatus';
 
 // ----------------------------------------------------------------------
 
-const AVATAR_SIZE = 48;
+const AVATAR_SIZE = 56;
 const AVATAR_SIZE_GROUP = 32;
 
 const RootStyle = styled(ListItemButton)(({ theme }) => ({
