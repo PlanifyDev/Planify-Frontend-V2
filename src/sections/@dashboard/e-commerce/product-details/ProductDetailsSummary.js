@@ -55,11 +55,17 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
   const theme = useTheme();
 
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(true);
+
 
   const [disabled, setDisabled] = useState(true);
 
   const handleEditClick = () => {
     setDisabled(false);
+  };
+
+  const handleClick = () => {
+    setIsVisible(!isVisible);
   };
 
   const handleBlur = () => {
@@ -148,10 +154,11 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}  >
         <form
           style={{
-            border: 'solid #d9d9d9 0.1rem',
+            border: 'none',
             padding: '1.5rem',
             borderRadius: '1rem',
             marginLeft: '-0.6rem',
+            marginTop:'0.9rem',
           }}>
           {/* background: ' #f2f2f2' */}
           {/* ////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\ */}
@@ -230,22 +237,90 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
           <Divider sx={{ borderStyle: 'dashed' }} />
 
           <Stack direction="row" spacing={2} sx={{ mt: 1 }}>
-            <Button
+            {isVisible ? (
 
-              fullWidth
-              disabled={isMaxQuantity}
-              size="large"
-              variant="contained"
-              Icon={<i className="bi bi-trash3" />}
-              onClick={handleAddCart}
-              sx={{ whiteSpace: 'nowrap' }}
-            >
-              Generate
-            </Button>
+              <Button
 
-            <Button fullWidth size="large" style={{ backgroundColor: '#e60000' }} type="submit" variant="contained">
+                fullWidth
+                disabled={isMaxQuantity}
+                size="large"
+                variant="contained"
+                Icon={<i className="bi bi-trash3" />}
+                onClick={handleClick}
+                // sx={{ whiteSpace: 'nowrap' }}
+                style={{
+                  marginBottom: '0.5rem',
+                  marginTop: '0.7rem',
+                }}
+              >
+
+                New Design
+              </Button>
+            ) : (
+              <div>
+                <form style={{
+                  border: 'solid  #d9d9d9 0.1rem',
+                  width: '22.5rem',
+                  padding: '1.4rem',
+                  borderRadius: '1rem',
+                  marginLeft: '-1.6rem',
+                  marginTop: '2rem'
+                }}>
+                  <Typography style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.3rem' }} variant="subtitle1" sx={{ mt: 0 }}>
+                    Create new version
+                  </Typography>
+                  <Divider sx={{ borderStyle: 'dashed', padding: '0.6rem' }} />
+
+
+                  <Stack direction="row" justifyContent="space-between" sx={{ mb: 3.6 }}>
+                    <Typography variant="subtitle1" sx={{ mt: 0.4 }}>
+                      Rooms
+                    </Typography>
+
+                    <Incrementer0
+                      name="quant"
+                      quant={values.quant}
+                      availablee={available}
+                      onIncrementQuantity={() => setValue('quant', values.quant + 1)}
+                      onDecrementQuantity={() => setValue('quant', values.quant - 1)}
+                    />
+
+                  </Stack>
+
+
+                  <Stack direction="row" justifyContent="space-between" sx={{ mb: 3 }}>
+                    <Typography variant="subtitle1" sx={{ mt: 0.8 }}>
+                      Bathrooms
+                    </Typography>
+
+                    <div>
+                      <Incrementer
+                        name="quantity"
+                        quantity={values.quantity}
+                        available={available}
+                        onIncrementQuantity={() => setValue('quantity', values.quantity + 1)}
+                        onDecrementQuantity={() => setValue('quantity', values.quantity - 1)}
+                      />
+
+                    </div>
+                  </Stack>
+                  <Divider sx={{ borderStyle: 'dashed' }} />
+
+                  <Stack direction="row" spacing={2} sx={{ mt: 1.5 }}>
+
+                    <Button fullWidth size="large" type="submit" variant="contained" style={{ marginBottom: '1rem' }}>
+                      Generate
+                    </Button>
+                  </Stack>
+                </form>
+              </div>
+            )}
+
+            {/* <Button fullWidth size="large" style={{ backgroundColor: '#e60000' }} type="submit" variant="contained">
               Delete
-            </Button>
+            </Button> */}
+
+
           </Stack>
 
         </form>
@@ -255,7 +330,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
 
         {/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
-        <form style={{ border: 'solid  #d9d9d9 0.1rem', padding: '1.5rem', borderRadius: '1rem', marginLeft: '-0.6rem' }}>
+        {/* <form style={{ border: 'solid  #d9d9d9 0.1rem', padding: '1.5rem', borderRadius: '1rem', marginLeft: '-0.6rem' }}>
           <Typography style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.3rem' }} variant="subtitle1" sx={{ mt: 0 }}>
             Create new version
           </Typography>
@@ -308,10 +383,7 @@ export default function ProductDetailsSummary({ cart, product, onAddCart, onGoto
           </Stack>
 
 
-          {/* <Stack alignItems="center" sx={{ mt: 3 }}>
-            <SocialsButton initialColor />
-          </Stack> */}
-        </form>
+        </form> */}
       </FormProvider>
     </RootStyle >
   );
