@@ -1,3 +1,5 @@
+import { IndentStyle } from 'typescript';
+
 import { m } from 'framer-motion';
 // @mui
 import { styled } from '@mui/material/styles';
@@ -8,46 +10,49 @@ import { TextAnimate, MotionContainer, varFade } from '../../components/animate'
 // ----------------------------------------------------------------------
 
 const CONTACTS = [
-  {
-    country: 'Bali',
-    address: '508 Bridle Avenue Newnan, GA 30263',
-    phoneNumber: '(239) 555-0108',
-  },
-  {
-    country: 'London',
-    address: '508 Bridle Avenue Newnan, GA 30263',
-    phoneNumber: '(319) 555-0115',
-  },
-  {
-    country: 'Prague',
-    address: '508 Bridle Avenue Newnan, GA 30263',
-    phoneNumber: '(252) 555-0126',
-  },
-  {
-    country: 'Moscow',
-    address: '508 Bridle Avenue Newnan, GA 30263',
-    phoneNumber: '(307) 555-0133',
-  },
+  // {
+  //   country: 'Bali',
+  //   address: '508 Bridle Avenue Newnan, GA 30263',
+  //   phoneNumber: '(239) 555-0108',
+  // },
+  // {
+  //   country: 'London',
+  //   address: '508 Bridle Avenue Newnan, GA 30263',
+  //   phoneNumber: '(319) 555-0115',
+  // },
+  // {
+  //   country: 'Prague',
+  //   address: '508 Bridle Avenue Newnan, GA 30263',
+  //   phoneNumber: '(252) 555-0126',
+  // },
+  // {
+  //   country: 'Moscow',
+  //   address: '508 Bridle Avenue Newnan, GA 30263',
+  //   phoneNumber: '(307) 555-0133',
+  // },
 ];
 
 const RootStyle = styled('div')(({ theme }) => ({
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundImage:
-    'url(https://minimal-assets-api.vercel.app/assets/overlay.svg), url(https://minimal-assets-api.vercel.app/assets/images/contact/hero.jpg)',
+    'url(https://minimal-assets-api.vercel.app/assets/overlay.svg), url(https://img.freepik.com/free-photo/top-view-vintage-telephone-receivers-with-cord_23-2148796034.jpg?w=1060&t=st=1683465530~exp=1683466130~hmac=8ae9d8fa76e77d3f8ffb94ca3ce687a032e47e941664cb63ddeb6fae18ad2149)',
   padding: theme.spacing(10, 0),
   [theme.breakpoints.up('md')]: {
-    height: 560,
+    height: 340,
     padding: 0,
+    // backgroundSize: 'cover',
   },
 }));
 
 const ContentStyle = styled('div')(({ theme }) => ({
   textAlign: 'center',
   [theme.breakpoints.up('md')]: {
-    textAlign: 'left',
-    position: 'absolute',
-    bottom: theme.spacing(10),
+    textAlign: 'center',
+    position: 'relative',
+    border:'1px solid white',
+    bottom: theme.spacing(-13.5),
+    padding:'0px 0px 0px 0px'
   },
 }));
 
@@ -56,33 +61,12 @@ const ContentStyle = styled('div')(({ theme }) => ({
 export default function ContactHero() {
   return (
     <RootStyle>
-      <Container component={MotionContainer} sx={{ position: 'relative', height: '100%' }}>
+      <Container component={MotionContainer} sx={{  position: 'relative', height: '100%',color:'white' }}>
         <ContentStyle>
-          <TextAnimate text="Where" sx={{ color: 'primary.main' }} variants={varFade().inRight} />
-          <br />
-          <Box sx={{ display: 'inline-flex', color: 'common.white' }}>
-            <TextAnimate text="to" sx={{ mr: 2 }} />
-            <TextAnimate text="find" sx={{ mr: 2 }} />
-            <TextAnimate text="us?" />
-          </Box>
+          <TextAnimate text="Contact &nbsp; &nbsp; Us !" sx={{ color:'white',position:'relative' }} variants={varFade().inRight} />
+          
 
-          <Grid container spacing={5} sx={{ mt: 5, color: 'common.white' }}>
-            {CONTACTS.map((contact) => (
-              <Grid key={contact.country} item xs={12} sm={6} md={3} lg={2} sx={{ pr: { md: 5 } }}>
-                <m.div variants={varFade().in}>
-                  <Typography variant="h6" paragraph>
-                    {contact.country}
-                  </Typography>
-                </m.div>
-                <m.div variants={varFade().inRight}>
-                  <Typography variant="body2">
-                    {contact.address}
-                    <br /> {contact.phoneNumber}
-                  </Typography>
-                </m.div>
-              </Grid>
-            ))}
-          </Grid>
+          
         </ContentStyle>
       </Container>
     </RootStyle>
