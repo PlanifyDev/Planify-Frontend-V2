@@ -59,7 +59,7 @@ export default function HomeColorPresets() {
           </Typography>
         </m.div>
 
-        <RadioGroup name="themeColorPresets" value={themeColorPresets} onChange={onChangeColor} sx={{ my: 5 }}>
+        {/* <RadioGroup name="themeColorPresets" value={themeColorPresets} onChange={onChangeColor} sx={{ my: 5 }}>
           <Stack
             direction={{ xs: 'row', lg: 'column' }}
             justifyContent="center"
@@ -128,7 +128,7 @@ export default function HomeColorPresets() {
               );
             })}
           </Stack>
-        </RadioGroup>
+        </RadioGroup> */}
         {/* //////////////////////////////////4 images needed////////////////////////////////////////////////////////// */}
 
         <Box sx={{ position: 'relative' }}>
