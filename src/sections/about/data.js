@@ -25,7 +25,7 @@ export const data = [
       "email": "",
       "phone": "01000000000",
       "address": "Cairo, Egypt",
-      "role": "backend developer",
+      "role": "Software Engineer",
       "avatar": "https://avatars.githubusercontent.com/u/54917317?v=4",
 
   },

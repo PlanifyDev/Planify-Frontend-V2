@@ -29,7 +29,7 @@ const LINKS = [
   {
     headline: 'Contact',
     children: [
-      { name: 'planify@gmail.com', href: '#' },
+      { name: 'planify.wolrd@gmail.com', href: '#' },
       // { name: 'Los Angeles, 359  Hidden Valley Road', href: '#' },
     ],
   },
