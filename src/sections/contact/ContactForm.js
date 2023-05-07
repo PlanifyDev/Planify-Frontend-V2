@@ -12,7 +12,7 @@ export default function ContactForm() {
       <m.div variants={varFade().inUp}>
         <Typography variant="h3" style={{color:'primary.main'}}>
           Feel free to contact us. <br />
-          We'll be glad to hear from you, buddy.
+          {/* We are always available to answer any questions you may have. */}
         </Typography>
       </m.div>
 

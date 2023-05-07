@@ -24,12 +24,10 @@ export default function Contact() {
 
         <Container sx={{ my: 10 }}>
           <Grid container spacing={10}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={10} >
               <ContactForm />
             </Grid>
-            <Grid item xs={12} md={6}>
-              <ContactMap />
-            </Grid>
+            
           </Grid>
         </Container>
       </RootStyle>
