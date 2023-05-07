@@ -3,6 +3,8 @@ import { useState } from 'react';
 // @mui
 import { Box, Grid, Card, Button, Typography, Stack } from '@mui/material';
 //
+import { PATH_PAGE } from '../../../../routes/paths';
+
 import AccountBillingAddressBook from './AccountBillingAddressBook';
 import AccountBillingPaymentMethod from './AccountBillingPaymentMethod';
 import AccountBillingInvoiceHistory from './AccountBillingInvoiceHistory';
@@ -21,6 +23,10 @@ export default function AccountBilling({ cards, addressBook, invoices }) {
   const [open, setOpen] = useState(false);
   const { user } = useAuth();
   console.log('user.plan', user);
+  // const plans = () => {
+  //   window.location.href = 'PATH_PAGE.pricing';
+  // }
+
 
 
   return (
@@ -43,7 +49,7 @@ export default function AccountBilling({ cards, addressBook, invoices }) {
               <Button size="small" color="inherit" variant="outlined" sx={{ mr: 1 }}>
                 Cancel plan
               </Button>
-              <Button size="small" variant="outlined">
+              <Button size="small" variant="outlined" href='/pricing'>
                 Upgrade plan
               </Button>
             </Box>
