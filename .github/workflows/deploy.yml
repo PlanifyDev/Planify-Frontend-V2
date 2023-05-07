@@ -24,6 +24,7 @@ jobs:
           port: 22
           script: |
             rm -rf Planify-Frontend-V2
+            rm -rf server/build
             git clone git@github.com:PlanifyDev/Planify-Frontend-V2.git
             cd Planify-Frontend-V2
             npm install
