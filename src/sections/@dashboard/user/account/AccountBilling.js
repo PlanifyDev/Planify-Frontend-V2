@@ -55,12 +55,12 @@ export default function AccountBilling({ cards, addressBook, invoices }) {
             </Box>
           </Card>
 
-          <AccountBillingPaymentMethod
+          {/* <AccountBillingPaymentMethod
             cards={cards}
             isOpen={open}
             onOpen={() => setOpen(!open)}
             onCancel={() => setOpen(false)}
-          />
+          /> */}
 
         </Stack>
       </Grid>
