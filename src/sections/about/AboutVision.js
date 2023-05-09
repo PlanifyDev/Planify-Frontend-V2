@@ -54,8 +54,10 @@ export default function AboutVision() {
         <Grid item xs={12} sm={8}>
           <m.div variants={varFade().inUp}>
             <Typography variant="h3" sx={{ textAlign: 'center' }}>
-              Our vision offering the best product nulla vehicula tortor scelerisque ultrices malesuada.
-            </Typography>
+            our vision is to provide users with a seamless and stress-free experience in generating accurate and reliable floor plans using advanced AI technology.            
+            
+            
+                  </Typography>
           </m.div>
         </Grid>
       </Grid>

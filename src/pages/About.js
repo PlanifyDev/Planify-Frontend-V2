@@ -30,7 +30,7 @@ export default function About() {
 
         <AboutTeam />
 
-        <AboutTestimonials />
+        {/* <AboutTestimonials /> */}
       </RootStyle>
     </Page>
   );

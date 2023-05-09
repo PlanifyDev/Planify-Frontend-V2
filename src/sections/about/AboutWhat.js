@@ -40,7 +40,7 @@ export default function AboutWhat() {
     <RootStyle>
       <Container component={MotionViewport}>
         <Grid container spacing={3}>
-          {isDesktop && (
+          {/* {isDesktop && (
             <Grid item xs={12} md={6} lg={7} sx={{ pr: { md: 7 } }}>
               <Grid container spacing={3} alignItems="flex-end">
                 <Grid item xs={6}>
@@ -68,16 +68,16 @@ export default function AboutWhat() {
                 </Grid>
               </Grid>
             </Grid>
-          )}
+          )} */}
 
           <Grid item xs={12} md={6} lg={5}>
-            <m.div variants={varFade().inRight}>
+            {/* <m.div variants={varFade().inRight}>
               <Typography variant="h2" sx={{ mb: 3 }}>
                 What is minimal?
               </Typography>
-            </m.div>
+            </m.div> */}
 
-            <m.div variants={varFade().inRight}>
+            {/* <m.div variants={varFade().inRight}>
               <Typography
                 sx={{
                   color: (theme) => (theme.palette.mode === 'light' ? 'text.secondary' : 'common.white'),
@@ -88,17 +88,17 @@ export default function AboutWhat() {
                 click and everything from the theme options to page content can be edited from the front-end. This is
                 the theme you are looking for.
               </Typography>
-            </m.div>
+            </m.div> */}
 
-            <Box sx={{ my: 5 }}>
+            {/* <Box sx={{ my: 5 }}>
               {_skills.map((progress) => (
                 <m.div key={progress.label} variants={varFade().inRight}>
                   <ProgressItem progress={progress} />
                 </m.div>
               ))}
-            </Box>
+            </Box> */}
 
-            <m.div variants={varFade().inRight}>
+            {/* <m.div variants={varFade().inRight} style={{display:'flex'}}>
               <Button
                 variant="outlined"
                 color="inherit"
@@ -107,7 +107,7 @@ export default function AboutWhat() {
               >
                 Check out our work
               </Button>
-            </m.div>
+            </m.div> */}
           </Grid>
         </Grid>
       </Container>

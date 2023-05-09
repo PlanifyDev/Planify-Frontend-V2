@@ -52,7 +52,7 @@ export default function AboutHero() {
               }}
             >
               Let's work together and
-              <br /> make awesome design easily
+              <br /> make awesome Floor plans easily.
             </Typography>
           </m.div>
         </ContentStyle>
