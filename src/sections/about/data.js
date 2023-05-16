@@ -1,4 +1,6 @@
 // ----------------------------------------------------------------------
+import lamya from '../../assets/images/lamya.jpg';
+
 
 export const data = [
   {
@@ -21,27 +23,27 @@ export const data = [
   },
   {
       "id": 3,
-      "name": "Name 3",
+      "name": "Mostafa Ahmed",
       "email": "",
       "phone": "01000000000",
       "address": "Cairo, Egypt",
-      "role": "backend developer",
+      "role": "Software Engineer",
       "avatar": "https://avatars.githubusercontent.com/u/54917317?v=4",
 
   },
   { 
       "id": 4,
-      "name": "Name 4",
+      "name": "Lamya Eltatawy",
       "email": "",  
       "phone": "01000000000",
       "address": "Cairo, Egypt",
-      "role": "ux designer",
-      "avatar": "https://avatars.githubusercontent.com/u/54917317?v=4",
+      "role": "Software Engineer",
+      "avatar": "https://drive.google.com/file/d/13AojwokDHCohS-W2xKVkWUGq9s3LRHtZ/view?usp=sharing",
 
   },
   { 
       "id": 5,
-      "name": "Name 5",
+      "name": "Mohamed Hassan",
       "email": "",
       "phone": "01000000000",
       "address": "Cairo, Egypt",

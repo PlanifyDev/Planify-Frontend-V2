@@ -29,8 +29,8 @@ const LINKS = [
   {
     headline: 'Contact',
     children: [
-      { name: 'support@minimals.cc', href: '#' },
-      { name: 'Los Angeles, 359  Hidden Valley Road', href: '#' },
+      { name: 'planify.wolrd@gmail.com', href: '#' },
+      // { name: 'Los Angeles, 359  Hidden Valley Road', href: '#' },
     ],
   },
 ];
@@ -98,7 +98,7 @@ export default function MainFooter() {
           </Grid>
         </Grid>
 
-        <Typography
+        {/* <Typography
           component="p"
           variant="body2"
           sx={{
@@ -109,7 +109,7 @@ export default function MainFooter() {
           }}
         >
           © 2021. All rights reserved
-        </Typography>
+        </Typography> */}
       </Container>
     </RootStyle>
   );

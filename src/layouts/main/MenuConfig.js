@@ -15,13 +15,13 @@ const ICON_SIZE = {
 const menuConfig = [
   {
     title: 'Home',
-    icon: <Iconify icon={'eva:home-fill'} {...ICON_SIZE} />,
+    // icon: <Iconify icon={'eva:home-fill'} {...ICON_SIZE} />,
     path: '/',
   },
   {
-    title: 'Pages',
-    path: '/pages',
-    icon: <Iconify icon={'eva:file-fill'} {...ICON_SIZE} />,
+    // title: 'Pages',
+    // path: '/pages',
+    // icon: <Iconify icon={'eva:file-fill'} {...ICON_SIZE} />,
     children: [
       {
         subheader: 'Other',

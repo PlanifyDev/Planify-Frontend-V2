@@ -26,14 +26,14 @@ const PAYMENT_OPTIONS = [
     title: 'Pay with Paypal',
     icons: ['https://minimal-assets-api.vercel.app/assets/icons/ic_paypal.svg'],
   },
-  {
-    value: 'credit_card',
-    title: 'Credit / Debit Card',
-    icons: [
-      'https://minimal-assets-api.vercel.app/assets/icons/ic_mastercard.svg',
-      'https://minimal-assets-api.vercel.app/assets/icons/ic_visa.svg',
-    ],
-  },
+  // {
+  //   value: 'credit_card',
+  //   title: 'Credit / Debit Card',
+  //   icons: [
+  //     'https://minimal-assets-api.vercel.app/assets/icons/ic_mastercard.svg',
+  //     'https://minimal-assets-api.vercel.app/assets/icons/ic_visa.svg',
+  //   ],
+  // },
 ];
 const CARD_OPTIONS = [
   {
@@ -97,7 +97,7 @@ export default function PaymentMethods() {
           {PAYMENT_OPTIONS.map((option) => {
             const { value, title, icons } = option;
 
-            const hasChildren = value === 'credit_card';
+            // const hasChildren = value === 'credit_card';
 
             const isSelected = method === value;
 
@@ -108,7 +108,7 @@ export default function PaymentMethods() {
                   ...(isSelected && {
                     boxShadow: (theme) => theme.customShadows.z20,
                   }),
-                  ...(hasChildren && { flexWrap: 'wrap' }),
+                  // ...(hasChildren && { flexWrap: 'wrap' }),
                 }}
               >
                 <FormControlLabel
@@ -132,7 +132,7 @@ export default function PaymentMethods() {
                     <Image key={icon} alt="logo card" src={icon} />
                   ))}
                 </Stack>
-
+{/* 
                 {hasChildren && (
                   <Collapse in={method === 'credit_card'} sx={{ width: 1 }}>
                     <TextField select fullWidth label="Card" SelectProps={{ native: true }}>
@@ -141,22 +141,22 @@ export default function PaymentMethods() {
                           {option.label}
                         </option>
                       ))}
-                    </TextField>
+                    </TextField> */}
 
-                    <Button
+                    {/* <Button
                       size="small"
                       startIcon={<Iconify icon={'eva:plus-fill'} width={20} height={20} />}
                       onClick={handleCollapseIn}
                       sx={{ my: 3 }}
                     >
                       Add new card
-                    </Button>
+                    </Button> */}
 
-                    <Collapse in={show}>
+                    {/* <Collapse in={show}>
                       <PaymentNewCardForm onCancel={handleCollapseOut} />
                     </Collapse>
                   </Collapse>
-                )}
+                )} */}
               </OptionStyle>
             );
           })}

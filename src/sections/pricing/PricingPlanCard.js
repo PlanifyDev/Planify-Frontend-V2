@@ -123,7 +123,7 @@ export default function PricingPlanCard({ card, index, monthly }) {
         ))}
       </Stack>
 
-      <Button fullWidth size="large" variant="contained" disabled={card.plan_id===currentPlanId}>
+      <Button fullWidth size="large" variant="contained" disabled={card.plan_id===currentPlanId} href='/payment'>
         {labelAction}
       </Button>
     </RootStyle>

@@ -83,8 +83,8 @@ export default function EcommerceProductDetails() {
   };
 
   return (
-    <Page title="projects: project Details" style={{marginTop:'-2rem'}}>
-      <Container maxWidth={themeStretch ? false : 'lg'}>
+    <Page title="projects: project Details" style={{ marginTop: '-2rem' }}>
+      {/* <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="Project Details"
           links={[
@@ -99,36 +99,29 @@ export default function EcommerceProductDetails() {
             },
             // { name: sentenceCase(name) },
           ]}
-        />
+        /> */}
 
-        <CartWidget />
+      <CartWidget />
 
-        {product && (
-          <>
-            <Card style={{scale:'80%',marginTop:'-7rem'}}>
-              <Grid container>
-                <Grid item xs={12} md={6} lg={7}>
-                  <ProductDetailsCarousel product={product} />
-                </Grid>
-                <Grid item xs={12} md={6} lg={5} mt={-3.9}>
-                  <ProductDetailsSummary
-                    product={product}
-                    cart={checkout.cart}
-                    // onAddCart={handleAddCart}
-                    onGotoStep={handleGotoStep}
-                  />
-                </Grid>
-              </Grid>
-            </Card>
+      {product && (
+        <Card style={{ scale: '83%',  paddingTop:'0px !important',paddingBottom:'0rem',marginBottom:'-12rem',marginTop:'-5.5rem' }}>
+          <Grid container >
+            <Grid item xs={12} md={6} lg={6} >
+              <ProductDetailsCarousel product={product} />
+            </Grid>
+            <Grid item xs={12} md={6} lg={5} mt={-3.9}>
+              <ProductDetailsSummary
+                product={product}
+                cart={checkout.cart}
+                // onAddCart={handleAddCart}
+                onGotoStep={handleGotoStep}
+              />
+            </Grid>
+          </Grid>
+        </Card>
 
-            
-          </>
-        )}
 
-        {/* {!product && <SkeletonProduct />} */}
-
-        {/* {error && <Typography variant="h6">404 Product not found</Typography>} */}
-      </Container>
+      )}
     </Page>
   );
 }

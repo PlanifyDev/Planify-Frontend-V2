@@ -17,10 +17,10 @@ import { IconButtonAnimate } from '../../../components/animate';
 // ----------------------------------------------------------------------
 
 const MENU_OPTIONS = [
-  {
-    label: 'Profile',
-    linkTo: PATH_DASHBOARD.user.account,
-  },
+  // {
+  //   label: 'Profile',
+  //   linkTo: PATH_DASHBOARD.user.account,
+  // },
   {
     label: 'Settings',
     linkTo: PATH_DASHBOARD.user.account,
@@ -64,7 +64,8 @@ export default function AccountPopover() {
 
   return (
     <>
-      <IconButtonAnimate
+      <IconButtonAnimate    width={'560px'}
+
         onClick={handleOpen}
         sx={{
           p: 0,
@@ -81,7 +82,7 @@ export default function AccountPopover() {
           }),
         }}
       >
-        <MyAvatar />
+        <MyAvatar  />
       </IconButtonAnimate>
 
       <MenuPopover

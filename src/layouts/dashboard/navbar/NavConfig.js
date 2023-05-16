@@ -1,7 +1,7 @@
 
 // my work page المشاريع المعروضه
 // routes
-import { PATH_DASHBOARD } from '../../../routes/paths';
+import { PATH_DASHBOARD, PATH_PAGE } from '../../../routes/paths';
 // components
 import Label from '../../../components/Label';
 import SvgIconStyle from '../../../components/SvgIconStyle';
@@ -97,16 +97,54 @@ const navConfig = [
       // },
 
       // BLOG
+      // {
+      //   title: 'blog',
+      //   path: PATH_DASHBOARD.blog.root,
+      //   icon: ICONS.blog,
+      //   children: [
+      //     { title: 'posts', path: PATH_DASHBOARD.blog.posts },
+      //     { title: 'post', path: PATH_DASHBOARD.blog.demoView },
+      //     { title: 'create', path: PATH_DASHBOARD.blog.new },
+      //   ],
+      // },
       {
-        title: 'blog',
-        path: PATH_DASHBOARD.blog.root,
-        icon: ICONS.blog,
-        children: [
-          { title: 'posts', path: PATH_DASHBOARD.blog.posts },
-          { title: 'post', path: PATH_DASHBOARD.blog.demoView },
-          // { title: 'create', path: PATH_DASHBOARD.blog.new },
-        ],
+        title: 'Contact Us',
+        path: PATH_PAGE.contact,
+        // icon: ICONS.cart,
+        // children: [
+        //   // all projects
+        //   { title: 'projects', path: PATH_DASHBOARD.eCommerce.shop },
+        //   // specific project vergions
+        //   // { title: 'product', path: PATH_DASHBOARD.eCommerce.demoView },
+
+        // ],
       },
+      {
+        title: 'About Us',
+        path: PATH_PAGE.about,
+        // icon: ICONS.cart,
+        // children: [
+        //   // all projects
+        //   { title: 'projects', path: PATH_DASHBOARD.eCommerce.shop },
+        //   // specific project vergions
+        //   // { title: 'product', path: PATH_DASHBOARD.eCommerce.demoView },
+
+        // ],
+      },
+      {
+        title: 'FAQs',
+        path: PATH_PAGE.faqs,
+        // icon: ICONS.cart,
+        // children: [
+        //   // all projects
+        //   { title: 'projects', path: PATH_DASHBOARD.eCommerce.shop },
+        //   // specific project vergions
+        //   // { title: 'product', path: PATH_DASHBOARD.eCommerce.demoView },
+
+        // ],
+      },
+
+
     ],
   },
 
